@@ -1,484 +1,487 @@
-<!DOCTYPE html><html lang="pt-BR"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BunnyMC - Oficial</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&amp;family=Press+Start+2P&amp;display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #4999d3;
-            --accent: #ffff55;
-            --glass: rgba(0, 0, 0, 0.75);
-            --glass-border: rgba(255, 255, 255, 0.1);
-        }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BunnyMC - Oficial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4999d3;
+            --accent: #ffff55;
+            --glass: rgba(0, 0, 0, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scrollbar-width: thin;
-            scrollbar-color: var(--primary) transparent;
-        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) transparent;
+        }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #fff;
-            line-height: 1.6;
-            background: url('https://github.com/wCo3lhOh/SITE/blob/main/fundo.jpeg?raw=true') no-repeat center center fixed;
-            background-size: cover;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #fff;
+            line-height: 1.6;
+            background: url('https://github.com/wCo3lhOh/SITE/blob/main/fundo.jpeg?raw=true') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
 
-        /* Overlay para legibilidade */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%);
-            z-index: -1;
-        }
+        /* Overlay para legibilidade */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%);
+            z-index: -1;
+        }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-        /* HEADER & LOGO */
-        header {
-            text-align: center;
-            padding: 40px 0;
-        }
+        /* HEADER & LOGO */
+        header {
+            text-align: center;
+            padding: 40px 0;
+        }
 
-        .logo {
-            max-width: 100%;
-            width: 600px;
-            height: auto;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
-            transition: transform 0.3s ease;
-        }
+        .logo {
+            max-width: 100%;
+            width: 600px;
+            height: auto;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+            transition: transform 0.3s ease;
+        }
 
-        .logo:hover {
-            transform: scale(1.02);
-        }
+        .logo:hover {
+            transform: scale(1.02);
+        }
 
-        /* BOTAO ENTRAR */
-        .join-btn {
-            display: inline-block;
-            margin: 20px 0;
-            background: linear-gradient(135deg, #4caf50, #2e7d32);
-            color: white;
-            padding: 20px 40px;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 14px;
-            text-decoration: none;
-            border-radius: 12px;
-            border: 4px solid #ffffff33;
-            box-shadow: 0 10px 0 #1b5e20, 0 15px 30px rgba(0,0,0,0.4);
-            transition: all 0.1s;
-            text-transform: uppercase;
-        }
+        /* BOTAO ENTRAR */
+        .join-btn {
+            display: inline-block;
+            margin: 20px 0;
+            background: linear-gradient(135deg, #4caf50, #2e7d32);
+            color: white;
+            padding: 20px 40px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 14px;
+            text-decoration: none;
+            border-radius: 12px;
+            border: 4px solid #ffffff33;
+            box-shadow: 0 10px 0 #1b5e20, 0 15px 30px rgba(0,0,0,0.4);
+            transition: all 0.1s;
+            text-transform: uppercase;
+        }
 
-        .join-btn:hover {
-            transform: translateY(-5px);
-            background: linear-gradient(135deg, #66bb6a, #388e3c);
-        }
+        .join-btn:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, #66bb6a, #388e3c);
+        }
 
-        .join-btn:active {
-            transform: translateY(8px);
-            box-shadow: 0 2px 0 #1b5e20;
-        }
+        .join-btn:active {
+            transform: translateY(8px);
+            box-shadow: 0 2px 0 #1b5e20;
+        }
 
-        /* GRID DE IMAGENS (CARROSSEIS) */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-            margin: 50px 0;
-        }
+        /* GRID DE IMAGENS (CARROSSEIS) */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
 
-        .feature-card {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
+        .feature-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
 
-        .feature-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
 
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            overflow: hidden;
-            cursor: pointer;
-        }
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            cursor: pointer;
+        }
 
-        .carousel-slide {
-            display: none;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            animation: fade 1s ease-in-out;
-        }
+        .carousel-slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: fade 1s ease-in-out;
+        }
 
-        .carousel-slide.active {
-            display: block;
-        }
+        .carousel-slide.active {
+            display: block;
+        }
 
-        @keyframes fade {
-            from { opacity: 0.4; }
-            to { opacity: 1; }
-        }
+        @keyframes fade {
+            from { opacity: 0.4; }
+            to { opacity: 1; }
+        }
 
-        .card-info {
-            padding: 20px;
-            text-align: center;
-        }
+        .card-info {
+            padding: 20px;
+            text-align: center;
+        }
 
-        .card-info h3 {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 12px;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
+        .card-info h3 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 12px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
 
-        /* DESCRICAO DO SERVIDOR */
-        .server-info {
-            background: var(--glass);
-            backdrop-filter: blur(15px);
-            border-radius: 30px;
-            padding: 40px;
-            margin: 40px 0;
-            border: 1px solid var(--glass-border);
-        }
+        /* DESCRICAO DO SERVIDOR */
+        .server-info {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: 40px;
+            margin: 40px 0;
+            border: 1px solid var(--glass-border);
+        }
 
-        .server-info h2 {
-            font-family: 'Press Start 2P', cursive;
-            color: var(--accent);
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 18px;
-        }
+        .server-info h2 {
+            font-family: 'Press Start 2P', cursive;
+            color: var(--accent);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
 
-        .info-content {
-            columns: 2;
-            column-gap: 40px;
-            text-align: justify;
-        }
+        .info-content {
+            columns: 2;
+            column-gap: 40px;
+            text-align: justify;
+        }
 
-        .info-item {
-            break-inside: avoid;
-            margin-bottom: 25px;
-        }
+        .info-item {
+            break-inside: avoid;
+            margin-bottom: 25px;
+        }
 
-        .info-item h4 {
-            color: var(--primary);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .info-item h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-        /* REDES SOCIAIS */
-        .social-footer {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 40px 0;
-        }
+        /* REDES SOCIAIS */
+        .social-footer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px 0;
+        }
 
-        .social-link {
-            width: 70px;
-            height: 70px;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-        }
+        .social-link {
+            width: 70px;
+            height: 70px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+        }
 
-        .social-link img {
-            width: 40px;
-            height: 40px;
-        }
+        .social-link img {
+            width: 40px;
+            height: 40px;
+        }
 
-        .social-link:hover {
-            transform: scale(1.1) rotate(5deg);
-            background: var(--primary);
-        }
+        .social-link:hover {
+            transform: scale(1.1) rotate(5deg);
+            background: var(--primary);
+        }
 
-        /* LIGHTBOX / FULLSCREEN */
-        #lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            user-select: none;
-        }
+        /* LIGHTBOX / FULLSCREEN */
+        #lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+        }
 
-        #lightbox img {
-            max-width: 90%;
-            max-height: 80%;
-            border: 4px solid #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 50px rgba(0,0,0,1);
-        }
+        #lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border: 4px solid #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(0,0,0,1);
+        }
 
-        .lightbox-nav {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 30px;
-            transform: translateY(-50%);
-        }
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 30px;
+            transform: translateY(-50%);
+        }
 
-        .nav-btn {
-            background: rgba(255,255,255,0.1);
-            border: none;
-            color: white;
-            font-size: 50px;
-            cursor: pointer;
-            padding: 20px;
-            border-radius: 50%;
-            transition: 0.3s;
-        }
+        .nav-btn {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            font-size: 50px;
+            cursor: pointer;
+            padding: 20px;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
 
-        .nav-btn:hover { background: var(--primary); }
+        .nav-btn:hover { background: var(--primary); }
 
-        .close-lightbox {
-            position: absolute;
-            top: 30px;
-            right: 40px;
-            font-size: 40px;
-            color: white;
-            cursor: pointer;
-        }
+        .close-lightbox {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+        }
 
-        @media (max-width: 768px) {
-            .info-content { columns: 1; }
-            .logo { width: 90%; }
-            .features-grid { grid-template-columns: 1fr; }
-        }
-    </style>
-    <meta property="og:title" content="BunnyMC - Oficial">
-    <meta property="og:image" content="https://github.com/wCo3lhOh/SITE/blob/main/bunnymc.jpeg?raw=true">
-    <meta property="og:url" content="https://wco3lhoh.github.io/SITE/">
-    <meta property="og:type" content="website">
-    <meta property="og:description" content="Grande lançamento dia 24/04 às 22:00. Survival RPG, Minigames, Economia e muito mais!">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="BunnyMC - Oficial">
-    <meta name="twitter:description" content="Grande lançamento dia 24/04 às 22:00. Survival RPG, Minigames, Economia e muito mais!">
-    <meta name="twitter:image" content="https://github.com/wCo3lhOh/SITE/blob/main/bunnymc.jpeg?raw=true">
+        @media (max-width: 768px) {
+            .info-content { columns: 1; }
+            .logo { width: 90%; }
+            .features-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+    <meta property="og:title" content="BunnyMC - Oficial">
+    <meta property="og:image" content="https://github.com/wCo3lhOh/SITE/blob/main/bunnymc.jpeg?raw=true">
+    <meta property="og:url" content="https://wco3lhoh.github.io/SITE/">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Grande lançamento dia 24/04 às 22:00. Survival RPG, Minigames, Economia e muito mais!">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BunnyMC - Oficial">
+    <meta name="twitter:description" content="Grande lançamento dia 24/04 às 22:00. Survival RPG, Minigames, Economia e muito mais!">
+    <meta name="twitter:image" content="https://github.com/wCo3lhOh/SITE/blob/main/bunnymc.jpeg?raw=true">
 </head>
 <body>
 <div class="container">
-    <header>
-        <img src="https://github.com/wCo3lhOh/SITE/blob/main/title.png?raw=true" alt="BunnyMC Logo" class="logo">
-        <br>
-        <a href="minecraft://?addExternalServer=BunnyMC|ultra-04.bedhosting.com.br:38020" class="join-btn">Entrar no Servidor</a>
-    </header>
+    <header>
+        <img src="https://github.com/wCo3lhOh/SITE/blob/main/title.png?raw=true" alt="BunnyMC Logo" class="logo">
+        <br>
+        <a href="minecraft://?addExternalServer=BunnyMC|ultra-04.bedhosting.com.br:38020" class="join-btn">Entrar no Servidor</a>
+    </header>
 
-    <section class="features-grid">
-        <div class="feature-card">
-            <div class="carousel-container" data-group="dungeons">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/estrutura%201.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/estrutura%202.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/estrutura%203.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/estrutura%20deserto%201.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/estrutura%20deserto%202.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/estrutura%20deserto%203.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/dungeon%201.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/dungeon%202.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/dungeon%203.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/dungeon%204.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/dungeon%205.jpeg?raw=true" class="carousel-slide active">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/dungeon%206.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/dungeon%207.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/dungeon%208.jpeg?raw=true" class="carousel-slide">
-            </div>
-            <div class="card-info">
-                <h3>ESTRUTURAS &amp; DUNGEONS</h3>
-                <p>Explore um mundo repleto de mistérios e desafios fatais.</p>
-            </div>
-        </div>
+    <section class="features-grid">
+        <div class="feature-card">
+            <div class="carousel-container" data-group="dungeons">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/estrutura%201.jpeg?raw=true" class="carousel-slide">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/estrutura%202.jpeg?raw=true" class="carousel-slide">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/estrutura%203.jpeg?raw=true" class="carousel-slide">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/estrutura%20deserto%201.jpeg?raw=true" class="carousel-slide">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/estrutura%20deserto%202.jpeg?raw=true" class="carousel-slide">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/estrutura%20deserto%203.jpeg?raw=true" class="carousel-slide">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/dungeon%201.jpeg?raw=true" class="carousel-slide">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/dungeon%202.jpeg?raw=true" class="carousel-slide">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/dungeon%203.jpeg?raw=true" class="carousel-slide">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/dungeon%204.jpeg?raw=true" class="carousel-slide">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/dungeon%205.jpeg?raw=true" class="carousel-slide active">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/dungeon%206.jpeg?raw=true" class="carousel-slide">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/dungeon%207.jpeg?raw=true" class="carousel-slide">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/dungeon%208.jpeg?raw=true" class="carousel-slide">
+            </div>
+            <div class="card-info">
+                <h3>ESTRUTURAS &amp; DUNGEONS</h3>
+                <p>Explore um mundo repleto de mistérios e desafios fatais.</p>
+            </div>
+        </div>
 
-        <div class="feature-card">
-            <div class="carousel-container" data-group="shop">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/LOJA%201.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/LOJA%202.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/LOJA%203.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/ARMADURAS%201.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/BANCO.jpeg?raw=true" class="carousel-slide active">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/BANCO%202.png?raw=true" class="carousel-slide">
-            </div>
-            <div class="card-info">
-                <h3>LOJA DO SERVIDOR</h3>
-                <p class="">Equipamentos épicos e sistema bancário avançado.</p>
-            </div>
-        </div>
+        <div class="feature-card">
+            <div class="carousel-container" data-group="shop">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/LOJA%201.jpeg?raw=true" class="carousel-slide">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/LOJA%202.jpeg?raw=true" class="carousel-slide">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/LOJA%203.jpeg?raw=true" class="carousel-slide">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/ARMADURAS%201.jpeg?raw=true" class="carousel-slide">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/BANCO.jpeg?raw=true" class="carousel-slide active">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/BANCO%202.png?raw=true" class="carousel-slide">
+            </div>
+            <div class="card-info">
+                <h3>LOJA DO SERVIDOR</h3>
+                <p class="">Equipamentos épicos e sistema bancário avançado.</p>
+            </div>
+        </div>
 
-        <div class="feature-card">
-            <div class="carousel-container" data-group="games">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/ARENA%20PVP.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/esconde%201.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/esconde%202.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/esconde%203.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/esconde%204.jpeg?raw=true" class="carousel-slide active">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/esconde%205.jpeg?raw=true" class="carousel-slide">
-            </div>
-            <div class="card-info">
-                <h3>ARENA PVP &amp; MINIGAMES</h3>
-                <p>Esconde-esconde e combates intensos na Arena Bunny.</p>
-            </div>
-        </div>
-    </section>
+        <div class="feature-card">
+            <div class="carousel-container" data-group="games">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/ARENA%20PVP.jpeg?raw=true" class="carousel-slide">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/esconde%201.jpeg?raw=true" class="carousel-slide">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/esconde%202.jpeg?raw=true" class="carousel-slide">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/esconde%203.jpeg?raw=true" class="carousel-slide">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/esconde%204.jpeg?raw=true" class="carousel-slide active">
+                <img src="https://github.com/wCo3lhOh/SITE/blob/main/esconde%205.jpeg?raw=true" class="carousel-slide">
+            </div>
+            <div class="card-info">
+                <h3>ARENA PVP &amp; MINIGAMES</h3>
+                <p>Esconde-esconde e combates intensos na Arena Bunny.</p>
+            </div>
+        </div>
+    </section>
 
-    <section class="server-info">
-        <h2>🐰 CONHEÇA O BUNNY MC 🚀</h2>
-        <div class="info-content">
-            <div class="info-item">
-                <h4>🛡️ SURVIVAL RPG IMERSIVO</h4>
-                <p>Explore bosses e dungeons com sistema de Classes exclusivas, atributos e rebirths para você dominar o mundo.</p>
-            </div>
-            <div class="info-item">
-                <h4>🏰 SISTEMAS DE CLANS</h4>
-                <p>Forme alianças, declare guerras e participe de eventos de clans exclusivos com proteção contra fogo amigo.</p>
-            </div>
-            <div class="info-item">
-                <h4>💰 ECONOMIA ATIVA</h4>
-                <p>Sistema de dinheiro físico e banco. Mercado dinâmico com NPCs que movimentam a economia 100% ativa.</p>
-            </div>
-            <div class="info-item">
-                <h4>🌍 TERRENOS E EVOLUÇÃO</h4>
-                <p>Desbloqueie e expanda suas terras conforme sobe de nível. Gerencie suas Homes e TPA de forma dinâmica.</p>
-            </div>
-            <div class="info-item">
-                <h4>⭐ VANTAGENS VIP</h4>
-                <p>Acesse Fly, efeitos visuais exclusivos, mudança de tamanho e o título personalizado no servidor.</p>
-            </div>
-            <div class="info-item">
-                <h4 class="">📅 LANÇAMENTO DIA 24/04</h4>
-                <p class="">Prepare-se para o grande dia às 22:00. O melhor servidor da comunidade está chegando!</p>
-            </div>
-        </div>
-    </section>
+    <section class="server-info">
+        <h2>🐰 CONHEÇA O BUNNY MC 🚀</h2>
+        <div class="info-content">
+            <div class="info-item">
+                <h4>🛡️ SURVIVAL RPG IMERSIVO</h4>
+                <p>Explore bosses e dungeons com sistema de Classes exclusivas, atributos e rebirths para você dominar o mundo.</p>
+            </div>
+            <div class="info-item">
+                <h4>🏰 SISTEMAS DE CLANS</h4>
+                <p>Forme alianças, declare guerras e participe de eventos de clans exclusivos com proteção contra fogo amigo.</p>
+            </div>
+            <div class="info-item">
+                <h4>💰 ECONOMIA ATIVA</h4>
+                <p>Sistema de dinheiro físico e banco. Mercado dinâmico com NPCs que movimentam a economia 100% ativa.</p>
+            </div>
+            <div class="info-item">
+                <h4>🌍 TERRENOS E EVOLUÇÃO</h4>
+                <p>Desbloqueie e expanda suas terras conforme sobe de nível. Gerencie suas Homes e TPA de forma dinâmica.</p>
+            </div>
+            <div class="info-item">
+                <h4>⭐ VANTAGENS VIP</h4>
+                <p>Acesse Fly, efeitos visuais exclusivos, mudança de tamanho e o título personalizado no servidor.</p>
+            </div>
+            <div class="info-item">
+                <h4 class="">📅 LANÇAMENTO DIA 24/04</h4>
+                <p class="">Prepare-se para o grande dia às 22:00. O melhor servidor da comunidade está chegando!</p>
+            </div>
+        </div>
+    </section>
 
-    <footer class="social-footer">
-        <a href="https://chat.whatsapp.com/GB5XHqo9oBBLUwAzdq2ifh" target="_blank" class="social-link">
-            <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="WhatsApp">
-        </a>
-        <a href="https://discord.gg/PRvjxfCt" target="_blank" class="social-link">
-            <img src="https://cdn-icons-png.flaticon.com/512/3670/3670157.png" alt="Discord">
-        </a>
-    </footer>
+    <footer class="social-footer">
+        <a href="https://chat.whatsapp.com/GB5XHqo9oBBLUwAzdq2ifh" target="_blank" class="social-link">
+            <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="WhatsApp">
+        </a>
+        <a href="https://discord.gg/PRvjxfCt" target="_blank" class="social-link">
+            <img src="https://cdn-icons-png.flaticon.com/512/3670/3670157.png" alt="Discord">
+        </a>
+    </footer>
 </div>
 
 <div id="lightbox">
-    <span class="close-lightbox">×</span>
-    <div class="lightbox-nav">
-        <button class="nav-btn" id="prevBtn">&lt;</button>
-        <button class="nav-btn" id="nextBtn">&gt;</button>
-    </div>
-    <img id="lightboxImg" src="">
+    <span class="close-lightbox">×</span>
+    <div class="lightbox-nav">
+        <button class="nav-btn" id="prevBtn">&lt;</button>
+        <button class="nav-btn" id="nextBtn">&gt;</button>
+    </div>
+    <img id="lightboxImg" src="">
 </div>
 
 <script>
-    // Configuração dos Carrosséis Automáticos
-    const containers = document.querySelectorAll('.carousel-container');
-    const groups = {};
+    // Configuração dos Carrosséis Automáticos
+    const containers = document.querySelectorAll('.carousel-container');
+    const groups = {};
 
-    containers.forEach(container => {
-        const groupId = container.getAttribute('data-group');
-        const slides = container.querySelectorAll('.carousel-slide');
-        groups[groupId] = {
-            slides: Array.from(slides).map(img => img.src),
-            currentIndex: 0
-        };
+    containers.forEach(container => {
+        const groupId = container.getAttribute('data-group');
+        const slides = container.querySelectorAll('.carousel-slide');
+        groups[groupId] = {
+            slides: Array.from(slides).map(img => img.src),
+            currentIndex: 0
+        };
 
-        // Troca Automática a cada 3 segundos
-        setInterval(() => {
-            const currentSlide = container.querySelector('.carousel-slide.active');
-            currentSlide.classList.remove('active');
-            
-            let nextSlide = currentSlide.nextElementSibling;
-            if (!nextSlide || !nextSlide.classList.contains('carousel-slide')) {
-                nextSlide = container.querySelector('.carousel-slide');
-            }
-            nextSlide.classList.add('active');
-        }, 3000);
+        // Troca Automática a cada 3 segundos
+        setInterval(() => {
+            const currentSlide = container.querySelector('.carousel-slide.active');
+            currentSlide.classList.remove('active');
+            
+            let nextSlide = currentSlide.nextElementSibling;
+            if (!nextSlide || !nextSlide.classList.contains('carousel-slide')) {
+                nextSlide = container.querySelector('.carousel-slide');
+            }
+            nextSlide.classList.add('active');
+        }, 3000);
 
-        // Abrir Lightbox ao clicar
-        container.addEventListener('click', () => {
-            openLightbox(groupId);
-        });
-    });
+        // Abrir Lightbox ao clicar
+        container.addEventListener('click', () => {
+            openLightbox(groupId);
+        });
+    });
 
-    // Lógica do Lightbox
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    let activeGroupId = null;
-    let activeIndex = 0;
+    // Lógica do Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    let activeGroupId = null;
+    let activeIndex = 0;
 
-    function openLightbox(groupId) {
-        activeGroupId = groupId;
-        activeIndex = 0;
-        updateLightbox();
-        lightbox.style.display = 'flex';
-    }
+    function openLightbox(groupId) {
+        activeGroupId = groupId;
+        activeIndex = 0;
+        updateLightbox();
+        lightbox.style.display = 'flex';
+    }
 
-    function updateLightbox() {
-        lightboxImg.src = groups[activeGroupId].slides[activeIndex];
-    }
+    function updateLightbox() {
+        lightboxImg.src = groups[activeGroupId].slides[activeIndex];
+    }
 
-    document.getElementById('nextBtn').addEventListener('click', (e) => {
-        e.stopPropagation();
-        activeIndex = (activeIndex + 1) % groups[activeGroupId].slides.length;
-        updateLightbox();
-    });
+    document.getElementById('nextBtn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        activeIndex = (activeIndex + 1) % groups[activeGroupId].slides.length;
+        updateLightbox();
+    });
 
-    document.getElementById('prevBtn').addEventListener('click', (e) => {
-        e.stopPropagation();
-        activeIndex = (activeIndex - 1 + groups[activeGroupId].slides.length) % groups[activeGroupId].slides.length;
-        updateLightbox();
-    });
+    document.getElementById('prevBtn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        activeIndex = (activeIndex - 1 + groups[activeGroupId].slides.length) % groups[activeGroupId].slides.length;
+        updateLightbox();
+    });
 
-    document.querySelector('.close-lightbox').addEventListener('click', () => {
-        lightbox.style.display = 'none';
-    });
+    document.querySelector('.close-lightbox').addEventListener('click', () => {
+        lightbox.style.display = 'none';
+    });
 
-    // Fechar ao clicar fora da imagem
-    lightbox.addEventListener('click', (e) => {
-        if(e.target === lightbox) lightbox.style.display = 'none';
-    });
+    // Fechar ao clicar fora da imagem
+    lightbox.addEventListener('click', (e) => {
+        if(e.target === lightbox) lightbox.style.display = 'none';
+    });
 
-    // Suporte para Arrastar (Swipe simples com mouse/touch)
-    let startX = 0;
-    lightbox.addEventListener('mousedown', e => startX = e.clientX);
-    lightbox.addEventListener('mouseup', e => {
-        let diff = startX - e.clientX;
-        if(Math.abs(diff) > 50) {
-            if(diff > 0) document.getElementById('nextBtn').click();
-            else document.getElementById('prevBtn').click();
-        }
-    });
+    // Suporte para Arrastar (Swipe simples com mouse/touch)
+    let startX = 0;
+    lightbox.addEventListener('mousedown', e => startX = e.clientX);
+    lightbox.addEventListener('mouseup', e => {
+        let diff = startX - e.clientX;
+        if(Math.abs(diff) > 50) {
+            if(diff > 0) document.getElementById('nextBtn').click();
+            else document.getElementById('prevBtn').click();
+        }
+    });
 </script>
-</body></html>
+</body>
+</html>
