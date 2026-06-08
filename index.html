@@ -6,14 +6,14 @@
     <title>BunnyMC - Oficial</title>
 
     <meta property="og:title" content="BUNNY MC - Survival RPG!">
-    <meta property="og:description" content="Experimente uma aventura única! Venha jogar Survival RPG, Minigames e participar de nossa Economia Ativa!">
+    <meta property="og:description" content="O BunnyMC renasceu! Jogue agora com dragões, magias, novos biomas épicos, cavernas insanas e um sistema de RPG completo com proteção de reinos e terrenos!">
     <meta property="og:image" content="https://github.com/wCo3lhOh/SITE/blob/main/bunnymc.jpeg?raw=true">
     <meta property="og:url" content="https://wco3lhoh.github.io/SITE/">
     <meta property="og:type" content="website">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="BUNNY MC - Survival RPG!">
-    <meta name="twitter:description" content="Experimente uma aventura única! Venha jogar Survival RPG, Minigames e participar de nossa Economia Ativa!">
+    <meta name="twitter:description" content="O BunnyMC renasceu! Jogue agora com dragões, magias, novos biomas épicos, cavernas insanas e um sistema de RPG completo com proteção de reinos e terrenos!">
     <meta name="twitter:image" content="https://github.com/wCo3lhOh/SITE/blob/main/bunnymc.jpeg?raw=true">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -104,10 +104,9 @@
             box-shadow: 0 2px 0 #1b5e20;
         }
 
-        /* Correção Estrutural da Grid para Desktop */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 25px;
             margin: 50px 0;
         }
@@ -119,11 +118,23 @@
             border-radius: 20px;
             overflow: hidden;
             transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .feature-card:hover {
             transform: translateY(-10px);
             border-color: var(--primary);
+        }
+
+        .whatsapp-card {
+            border-color: #25D366;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.2);
+        }
+
+        .whatsapp-card:hover {
+            border-color: #128C7E;
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.4);
         }
 
         .carousel-container {
@@ -138,7 +149,9 @@
             display: none;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
             animation: fade 1s ease-in-out;
         }
 
@@ -146,14 +159,53 @@
             display: block;
         }
 
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         @keyframes fade {
             from { opacity: 0.4; }
             to { opacity: 1; }
         }
 
+        .yt-overlay-btn {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: #ff0000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 900;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s, background 0.2s;
+            border: 2px solid rgba(255,255,255,0.2);
+            text-transform: uppercase;
+        }
+
+        .yt-overlay-btn:hover {
+            transform: scale(1.05);
+            background: #e60000;
+        }
+
+        .yt-overlay-btn::before {
+            content: '▶';
+            font-size: 16px;
+        }
+
         .card-info {
             padding: 20px;
             text-align: center;
+            flex-grow: 1;
         }
 
         .card-info h3 {
@@ -161,6 +213,12 @@
             font-size: 12px;
             color: var(--primary);
             margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .card-info p {
+            font-size: 14px;
+            text-align: justify;
         }
 
         .server-info {
@@ -202,30 +260,34 @@
         .social-footer {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            padding: 40px 0;
+            padding: 40px 0 60px 0;
         }
 
-        .social-link {
-            width: 70px;
-            height: 70px;
-            border-radius: 15px;
+        .whatsapp-link {
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 15px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
             transition: all 0.3s ease;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
-        .social-link img {
+        .whatsapp-link img {
             width: 40px;
             height: 40px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
         }
 
-        .social-link:hover {
-            transform: scale(1.1) rotate(5deg);
-            background: var(--primary);
+        .whatsapp-link:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 25px rgba(37, 211, 102, 0.5);
         }
 
         #lightbox {
@@ -242,9 +304,18 @@
             user-select: none;
         }
 
-        #lightbox img {
+        .lightbox-content {
+            position: relative;
             max-width: 90%;
             max-height: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #lightboxImg {
+            max-width: 100%;
+            max-height: 80vh;
             border: 4px solid #fff;
             border-radius: 10px;
             box-shadow: 0 0 50px rgba(0,0,0,1);
@@ -258,6 +329,8 @@
             justify-content: space-between;
             padding: 0 30px;
             transform: translateY(-50%);
+            box-sizing: border-box;
+            pointer-events: none;
         }
 
         .nav-btn {
@@ -269,6 +342,7 @@
             padding: 20px;
             border-radius: 50%;
             transition: 0.3s;
+            pointer-events: auto;
         }
 
         .nav-btn:hover { background: var(--primary); }
@@ -280,24 +354,23 @@
             font-size: 40px;
             color: white;
             cursor: pointer;
-        }
-
-        /* Regras Estritas de Responsividade */
-        @media (max-width: 992px) {
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            z-index: 1001;
         }
 
         @media (max-width: 768px) {
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
             .info-content {
                 columns: 1;
             }
             .logo {
                 width: 90%;
+            }
+            .whatsapp-link {
+                font-size: 14px;
+                padding: 12px 20px;
+            }
+            .whatsapp-link img {
+                width: 30px;
+                height: 30px;
             }
         }
     </style>
@@ -312,96 +385,141 @@
     </header>
 
     <section class="features-grid">
+        
         <div class="feature-card">
-            <div class="carousel-container" data-group="dungeons">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/estrutura%201.jpeg?raw=true" class="carousel-slide active">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/estrutura%202.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/estrutura%203.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/estrutura%20deserto%201.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/estrutura%20deserto%202.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/estrutura%20deserto%203.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/dungeon%201.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/dungeon%202.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/dungeon%203.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/dungeon%204.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/dungeon%205.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/dungeon%206.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/dungeon%207.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/dungeon%208.jpeg?raw=true" class="carousel-slide">
+            <div class="carousel-container" data-group="biomes">
+                <div class="carousel-slide active">
+                    <img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/capa%20OhTheBiomesYoullgo_MarketingScreenshot_0.jpg">
+                    <a href="https://youtu.be/7hddk_1OBMs" target="_blank" class="yt-overlay-btn" onclick="event.stopPropagation()">Assistir Trailer</a>
+                </div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/OhTheBiomesYoullgo_MarketingScreenshot_0.jpg"></div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/OhTheBiomesYoullgo_MarketingScreenshot_1.jpg"></div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/OhTheBiomesYoullgo_MarketingScreenshot_2.jpg"></div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/OhTheBiomesYoullgo_MarketingScreenshot_3.jpg"></div>
             </div>
             <div class="card-info">
-                <h3>ESTRUTURAS & DUNGEONS</h3>
-                <p>Explore um mundo repleto de mistérios e desafios fatais.</p>
+                <h3>BIOMES YOU GO</h3>
+                <p>Transformação completa na geração do mundo. Explore dezenas de novos biomas realistas e fantasiosos, descubra novas madeiras, plantas raras e desvende paisagens únicas e deslumbrantes pelo Overworld.</p>
             </div>
         </div>
 
         <div class="feature-card">
-            <div class="carousel-container" data-group="shop">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/LOJA%201.jpeg?raw=true" class="carousel-slide active">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/LOJA%202.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/LOJA%203.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/ARMADURAS%201.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/BANCO.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/BANCO%202.png?raw=true" class="carousel-slide">
+            <div class="carousel-container" data-group="skills">
+                <div class="carousel-slide active">
+                    <img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/capa%20Levels%20Matter_Screenshot_4.jpg">
+                    <a href="https://youtu.be/NQzIrnI83u0" target="_blank" class="yt-overlay-btn" onclick="event.stopPropagation()">Assistir Trailer</a>
+                </div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/Levels%20Matter_Screenshot_4.jpg"></div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/Levels%20Matter_Screenshot_3.jpg"></div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/Levels%20Matter_Screenshot_5.jpg"></div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/Levels%20Matter_Screenshot_9.jpg"></div>
             </div>
             <div class="card-info">
-                <h3>LOJA DO SERVIDOR</h3>
-                <p>Equipamentos épicos e sistema bancário avançado.</p>
+                <h3>LEVELS MATTER (SKILLS)</h3>
+                <p>Aprimore seu personagem com um verdadeiro sistema de RPG. Ganhe experiência e invista pontos em árvores de habilidades exclusivas para aumentar sua vida máxima, força de ataque, velocidade e destreza.</p>
             </div>
         </div>
 
         <div class="feature-card">
-            <div class="carousel-container" data-group="games">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/ARENA%20PVP.jpeg?raw=true" class="carousel-slide active">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/esconde%201.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/esconde%202.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/esconde%203.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/esconde%204.jpeg?raw=true" class="carousel-slide">
-                <img src="https://github.com/wCo3lhOh/SITE/blob/main/esconde%205.jpeg?raw=true" class="carousel-slide">
+            <div class="carousel-container" data-group="adventure">
+                <div class="carousel-slide active">
+                    <img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/capa%20AdventureCraft_Screenshot_1.jpg">
+                    <a href="https://youtu.be/wTz_rbfdnHE" target="_blank" class="yt-overlay-btn" onclick="event.stopPropagation()">Assistir Trailer</a>
+                </div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/AdventureCraft_Screenshot_0.jpg"></div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/AdventureCraft_Screenshot_1.jpg"></div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/AdventureCraft_Screenshot_2.jpg"></div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/AdventureCraft_Screenshot_3.jpg"></div>
             </div>
             <div class="card-info">
-                <h3>ARENA PVP & MINIGAMES</h3>
-                <p>Esconde-esconde e combates intensos na Arena Bunny.</p>
+                <h3>ADVENTURE CRAFT</h3>
+                <p>Mergulhe em um universo com novas masmorras perigosas, estruturas grandiosas, magias antigas e, o mais importante, dragões épicos que você pode domar e montar para explorar os céus do servidor!</p>
             </div>
         </div>
+
+        <div class="feature-card">
+            <div class="carousel-container" data-group="end">
+                <div class="carousel-slide active">
+                    <img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/capa%20EternalEnd_MarketingScreenshot_2.jpg">
+                    <a href="https://youtu.be/58o8LPOa9yE" target="_blank" class="yt-overlay-btn" onclick="event.stopPropagation()">Assistir Trailer</a>
+                </div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/EternalEnd_MarketingScreenshot_1.jpg"></div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/EternalEnd_MarketingScreenshot_2.jpg"></div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/EternalEnd_MarketingScreenshot_3.jpg"></div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/EternalEnd_MarketingScreenshot_10.jpg"></div>
+            </div>
+            <div class="card-info">
+                <h3>ETERNAL END</h3>
+                <p>O The End nunca mais será o mesmo. Uma revisão colossal que adiciona novas florestas alienígenas no fim, inimigos corrompidos, estruturas misteriosas e loot extremamente valioso escondido no vazio.</p>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <div class="carousel-container" data-group="caves">
+                <div class="carousel-slide active">
+                    <img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/capa%20EternalCaves_MarketingScreenshot_3.jpg">
+                    <a href="https://youtu.be/QFSbJAdV-ps" target="_blank" class="yt-overlay-btn" onclick="event.stopPropagation()">Assistir Trailer</a>
+                </div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/EternalCaves_MarketingScreenshot_1.jpg"></div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/EternalCaves_MarketingScreenshot_2.jpg"></div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/EternalCaves_MarketingScreenshot_3.jpg"></div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/EternalCaves_MarketingScreenshot_10.jpg"></div>
+            </div>
+            <div class="card-info">
+                <h3>ETERNAL CAVES</h3>
+                <p>O subterrâneo foi revolucionado com mais de 20 novos tipos de cavernas insanas. Enfrente abismos traiçoeiros, biomas subterrâneos vívidos e novos minérios e perigos que mudarão sua forma de minerar.</p>
+            </div>
+        </div>
+
+        <div class="feature-card whatsapp-card" onclick="window.open('https://chat.whatsapp.com/GB5XHqo9oBBLUwAzdq2ifh', '_blank')" style="cursor: pointer;">
+            <div class="carousel-container" style="display:flex; align-items:center; justify-content:center; background: linear-gradient(135deg, #075E54, #128C7E);">
+                <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" style="width: 45%; height: auto; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)); transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <div class="card-info" style="display: flex; flex-direction: column; justify-content: center;">
+                <h3 style="color: #25D366; font-size: 14px;">COMUNIDADE OFICIAL</h3>
+                <p>Junte-se ao nosso grupo do WhatsApp! Fique por dentro das atualizações, participe de eventos exclusivos, tire dúvidas e converse diretamente com toda a galera do servidor.</p>
+                <div style="margin-top: 15px; font-weight: 900; color: #fff; background: #25D366; padding: 12px; border-radius: 8px; text-transform: uppercase; font-size: 14px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);">
+                    CLIQUE PARA ENTRAR
+                </div>
+            </div>
+        </div>
+
     </section>
 
     <section class="server-info">
         <h2>🐰 CONHEÇA O BUNNY MC 🚀</h2>
         <div class="info-content">
             <div class="info-item">
-                <h4>🛡️ SURVIVAL RPG IMERSIVO</h4>
-                <p>Explore bosses e dungeons com sistema de Classes exclusivas, atributos e rebirths para você dominar o mundo.</p>
+                <h4>🛡️ SURVIVAL RPG ÉPICO</h4>
+                <p>Uma experiência totalmente reformulada com novos biomas, dezenas de cavernas insanas, dimensões expandidas, dragões montáveis e masmorras mortais.</p>
             </div>
             <div class="info-item">
-                <h4>🏰 SISTEMAS DE CLANS</h4>
-                <p>Forme alianças, declare guerras e participe de eventos de clans exclusivos com proteção contra fogo amigo.</p>
+                <h4>🏰 SISTEMA DE REINOS & CLANS</h4>
+                <p>Funde seu próprio reino com XP. Exerça o sistema de hierarquia (Camponês, Duque, Rei), ative ou desative o fogo amigo, gerencie diplomacia e lute em guerras por pontos de renome.</p>
             </div>
             <div class="info-item">
-                <h4>💰 ECONOMIA ATIVA</h4>
-                <p>Sistema de dinheiro físico e banco. Mercado dinâmico com NPCs que movimentam a economia 100% ativa.</p>
+                <h4>📈 PROGRESSÃO E HABILIDADES</h4>
+                <p>Suba de nível e invista em estatísticas reais de RPG! Melhore sua vida máxima, dano de combate, agilidade de movimento e velocidade de mineração de acordo com seu estilo de jogo.</p>
             </div>
             <div class="info-item">
-                <h4>🌍 TERRENOS E EVOLUÇÃO</h4>
-                <p>Desbloqueie e expanda suas terras conforme sobe de nível. Gerencie suas Homes e TPA de forma dinâmica.</p>
+                <h4>🌍 PROTEÇÃO DE TERRENOS & HOMES</h4>
+                <p>Garanta a segurança das suas construções protegendo seu território com nosso sistema exclusivo, mantendo suas terras sempre protegidas. Explore o mundo com agilidade, salvando seus lugares favoritos com o sistema de Home e encontrando seus aliados rapidamente através de pedidos de teleporte.</p>
             </div>
             <div class="info-item">
                 <h4>⭐ VANTAGENS VIP</h4>
-                <p>Acesse Fly, efeitos visuais exclusivos, mudança de tamanho e o título personalizado no servidor.</p>
+                <p>Acesse efeitos permanentes como Velocidade II, Super Pulo e aumento drástico de Vida/Dano. VIPs Plus (VIP 2) possuem voo livre, alteração de tamanho, nicks com animações coloridas, partículas exclusivas e até 20 homes.</p>
             </div>
             <div class="info-item">
                 <h4>🟢 SERVIDOR ONLINE</h4>
-                <p>O melhor servidor da comunidade já está de portas abertas! Entre agora e comece sua jornada épica.</p>
+                <p>O melhor servidor da comunidade focado em RPG e exploração extrema. Entre agora e construa o seu legado inesquecível conosco!</p>
             </div>
         </div>
     </section>
 
     <footer class="social-footer">
-        <a href="https://chat.whatsapp.com/GB5XHqo9oBBLUwAzdq2ifh" target="_blank" class="social-link">
+        <a href="https://chat.whatsapp.com/GB5XHqo9oBBLUwAzdq2ifh" target="_blank" class="whatsapp-link">
             <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="WhatsApp">
-        </a>
-        <a href="https://discord.gg/PRvjxfCt" target="_blank" class="social-link">
-            <img src="https://cdn-icons-png.flaticon.com/512/3670/3670157.png" alt="Discord">
+            <span>Faça parte da nossa Comunidade!</span>
         </a>
     </footer>
 </div>
@@ -412,39 +530,64 @@
         <button class="nav-btn" id="prevBtn">&lt;</button>
         <button class="nav-btn" id="nextBtn">&gt;</button>
     </div>
-    <img id="lightboxImg" src="">
+    <div class="lightbox-content">
+        <img id="lightboxImg" src="">
+        <a id="lightboxYtBtn" href="" target="_blank" class="yt-overlay-btn" style="display:none; bottom: 20px; right: 20px; font-size: 16px; padding: 12px 24px;">Assistir Trailer</a>
+    </div>
 </div>
 
 <script>
-    const containers = document.querySelectorAll('.carousel-container');
+    const containers = document.querySelectorAll('.carousel-container[data-group]');
     const groups = {};
 
     containers.forEach(container => {
         const groupId = container.getAttribute('data-group');
-        const slides = container.querySelectorAll('.carousel-slide');
+        const slideDivs = container.querySelectorAll('.carousel-slide');
+        
+        let slidesData = [];
+        let youtubeLink = null;
+
+        slideDivs.forEach((slide, index) => {
+            const img = slide.querySelector('img');
+            if (img) slidesData.push(img.src);
+            
+            // Captura o link do YouTube apenas na capa (primeiro slide)
+            if (index === 0) {
+                const ytBtn = slide.querySelector('.yt-overlay-btn');
+                if (ytBtn) youtubeLink = ytBtn.href;
+            }
+        });
+
         groups[groupId] = {
-            slides: Array.from(slides).map(img => img.src),
-            currentIndex: 0
+            slides: slidesData,
+            youtube: youtubeLink
         };
 
+        // Lógica de auto-play do carrossel
         setInterval(() => {
             const currentSlide = container.querySelector('.carousel-slide.active');
+            if (!currentSlide) return;
+            
             currentSlide.classList.remove('active');
             
             let nextSlide = currentSlide.nextElementSibling;
             if (!nextSlide || !nextSlide.classList.contains('carousel-slide')) {
-                nextSlide = container.querySelector('.carousel-slide');
+                nextSlide = container.querySelector('.carousel-slide'); // Volta para o primeiro
             }
             nextSlide.classList.add('active');
-        }, 3000);
+        }, 3500);
 
-        container.addEventListener('click', () => {
+        // Abrir Lightbox ao clicar (ignorando se clicou no botão do YouTube)
+        container.addEventListener('click', (e) => {
+            if (e.target.classList.contains('yt-overlay-btn')) return;
             openLightbox(groupId);
         });
     });
 
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxYtBtn = document.getElementById('lightboxYtBtn');
+    
     let activeGroupId = null;
     let activeIndex = 0;
 
@@ -456,7 +599,16 @@
     }
 
     function updateLightbox() {
-        lightboxImg.src = groups[activeGroupId].slides[activeIndex];
+        const group = groups[activeGroupId];
+        lightboxImg.src = group.slides[activeIndex];
+        
+        // Mostrar o botão do YouTube apenas se estivermos na Capa (Index 0)
+        if (activeIndex === 0 && group.youtube) {
+            lightboxYtBtn.style.display = 'flex';
+            lightboxYtBtn.href = group.youtube;
+        } else {
+            lightboxYtBtn.style.display = 'none';
+        }
     }
 
     document.getElementById('nextBtn').addEventListener('click', (e) => {
@@ -479,10 +631,20 @@
         if(e.target === lightbox) lightbox.style.display = 'none';
     });
 
+    // Suporte a Swipe para Lightbox
     let startX = 0;
     lightbox.addEventListener('mousedown', e => startX = e.clientX);
     lightbox.addEventListener('mouseup', e => {
         let diff = startX - e.clientX;
+        if(Math.abs(diff) > 50) {
+            if(diff > 0) document.getElementById('nextBtn').click();
+            else document.getElementById('prevBtn').click();
+        }
+    });
+
+    lightbox.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+    lightbox.addEventListener('touchend', e => {
+        let diff = startX - e.changedTouches[0].clientX;
         if(Math.abs(diff) > 50) {
             if(diff > 0) document.getElementById('nextBtn').click();
             else document.getElementById('prevBtn').click();
