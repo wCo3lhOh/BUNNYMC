@@ -192,12 +192,25 @@
             text-transform: uppercase;
         }
 
+        .yt-overlay-btn.site-btn {
+            background: #0066cc;
+        }
+
+        .yt-overlay-btn.site-btn:hover {
+            background: #0052a3;
+        }
+
+        .yt-overlay-btn.site-btn::before {
+            content: '🔗';
+            font-size: 16px;
+        }
+
         .yt-overlay-btn:hover {
             transform: scale(1.05);
             background: #e60000;
         }
 
-        .yt-overlay-btn::before {
+        .yt-overlay-btn:not(.site-btn)::before {
             content: '▶';
             font-size: 16px;
         }
@@ -379,57 +392,23 @@
 
 <div class="container">
     <header>
-        <img src="https://github.com/wCo3lhOh/SITE/blob/main/title.png?raw=true" alt="BunnyMC Logo" class="logo">
+        <img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/tittle.png.jpg" alt="BunnyMC Logo" class="logo">
         <br>
         <a href="minecraft://?addExternalServer=BunnyMC|ultra-04.bedhosting.com.br:38020" class="join-btn">Entrar no Servidor</a>
     </header>
 
     <section class="features-grid">
-        
-        <div class="feature-card">
-            <div class="carousel-container" data-group="biomes">
-                <div class="carousel-slide active">
-                    <img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/capa%20OhTheBiomesYoullgo_MarketingScreenshot_0.jpg">
-                    <a href="https://youtu.be/7hddk_1OBMs" target="_blank" class="yt-overlay-btn" onclick="event.stopPropagation()">Assistir Trailer</a>
-                </div>
-                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/OhTheBiomesYoullgo_MarketingScreenshot_0.jpg"></div>
-                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/OhTheBiomesYoullgo_MarketingScreenshot_1.jpg"></div>
-                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/OhTheBiomesYoullgo_MarketingScreenshot_2.jpg"></div>
-                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/OhTheBiomesYoullgo_MarketingScreenshot_3.jpg"></div>
-            </div>
-            <div class="card-info">
-                <h3>BIOMES YOU GO</h3>
-                <p>Transformação completa na geração do mundo. Explore dezenas de novos biomas realistas e fantasiosos, descubra novas madeiras, plantas raras e desvende paisagens únicas e deslumbrantes pelo Overworld.</p>
-            </div>
-        </div>
-
-        <div class="feature-card">
-            <div class="carousel-container" data-group="skills">
-                <div class="carousel-slide active">
-                    <img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/capa%20Levels%20Matter_Screenshot_4.jpg">
-                    <a href="https://youtu.be/NQzIrnI83u0" target="_blank" class="yt-overlay-btn" onclick="event.stopPropagation()">Assistir Trailer</a>
-                </div>
-                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/Levels%20Matter_Screenshot_4.jpg"></div>
-                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/Levels%20Matter_Screenshot_3.jpg"></div>
-                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/Levels%20Matter_Screenshot_5.jpg"></div>
-                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/Levels%20Matter_Screenshot_9.jpg"></div>
-            </div>
-            <div class="card-info">
-                <h3>LEVELS MATTER (SKILLS)</h3>
-                <p>Aprimore seu personagem com um verdadeiro sistema de RPG. Ganhe experiência e invista pontos em árvores de habilidades exclusivas para aumentar sua vida máxima, força de ataque, velocidade e destreza.</p>
-            </div>
-        </div>
 
         <div class="feature-card">
             <div class="carousel-container" data-group="adventure">
                 <div class="carousel-slide active">
-                    <img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/capa%20AdventureCraft_Screenshot_1.jpg">
+                    <img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/capa%20AdventureCraft_Screenshot_1.jpg" alt="Adventure Craft">
                     <a href="https://youtu.be/wTz_rbfdnHE" target="_blank" class="yt-overlay-btn" onclick="event.stopPropagation()">Assistir Trailer</a>
                 </div>
-                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/AdventureCraft_Screenshot_0.jpg"></div>
-                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/AdventureCraft_Screenshot_1.jpg"></div>
-                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/AdventureCraft_Screenshot_2.jpg"></div>
-                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/AdventureCraft_Screenshot_3.jpg"></div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/AdventureCraft_Screenshot_0.jpg" alt="Adventure Craft"></div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/AdventureCraft_Screenshot_1.jpg" alt="Adventure Craft"></div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/AdventureCraft_Screenshot_2.jpg" alt="Adventure Craft"></div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/AdventureCraft_Screenshot_3.jpg" alt="Adventure Craft"></div>
             </div>
             <div class="card-info">
                 <h3>ADVENTURE CRAFT</h3>
@@ -440,13 +419,13 @@
         <div class="feature-card">
             <div class="carousel-container" data-group="end">
                 <div class="carousel-slide active">
-                    <img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/capa%20EternalEnd_MarketingScreenshot_2.jpg">
+                    <img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/capa%20EternalEnd_MarketingScreenshot_2.jpg" alt="Eternal End">
                     <a href="https://youtu.be/58o8LPOa9yE" target="_blank" class="yt-overlay-btn" onclick="event.stopPropagation()">Assistir Trailer</a>
                 </div>
-                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/EternalEnd_MarketingScreenshot_1.jpg"></div>
-                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/EternalEnd_MarketingScreenshot_2.jpg"></div>
-                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/EternalEnd_MarketingScreenshot_3.jpg"></div>
-                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/EternalEnd_MarketingScreenshot_10.jpg"></div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/EternalEnd_MarketingScreenshot_1.jpg" alt="Eternal End"></div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/EternalEnd_MarketingScreenshot_2.jpg" alt="Eternal End"></div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/EternalEnd_MarketingScreenshot_3.jpg" alt="Eternal End"></div>
+                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/EternalEnd_MarketingScreenshot_10.jpg" alt="Eternal End"></div>
             </div>
             <div class="card-info">
                 <h3>ETERNAL END</h3>
@@ -455,19 +434,82 @@
         </div>
 
         <div class="feature-card">
-            <div class="carousel-container" data-group="caves">
+            <div class="carousel-container" data-group="alylica">
                 <div class="carousel-slide active">
-                    <img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/capa%20EternalCaves_MarketingScreenshot_3.jpg">
-                    <a href="https://youtu.be/QFSbJAdV-ps" target="_blank" class="yt-overlay-btn" onclick="event.stopPropagation()">Assistir Trailer</a>
+                    <img src="https://media.forgecdn.net/attachments/1700/123/mcpedl-png.png" alt="Alylica's Dungeons">
+                    <a href="https://mcpedl.com/alylicas-dungeons-addon-2-2/" target="_blank" class="yt-overlay-btn site-btn" onclick="event.stopPropagation()">Acessar Site</a>
                 </div>
-                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/EternalCaves_MarketingScreenshot_1.jpg"></div>
-                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/EternalCaves_MarketingScreenshot_2.jpg"></div>
-                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/EternalCaves_MarketingScreenshot_3.jpg"></div>
-                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/EternalCaves_MarketingScreenshot_10.jpg"></div>
+                <div class="carousel-slide"><img src="https://media.forgecdn.net/attachments/1243/403/mooshroomvv-png.png" alt="Alylica Dungeons"></div>
+                <div class="carousel-slide"><img src="https://media.forgecdn.net/attachments/1243/406/vhoevv-png.png" alt="Alylica Dungeons"></div>
+                <div class="carousel-slide"><img src="https://media.forgecdn.net/attachments/1243/405/tempestvv-png.png" alt="Alylica Dungeons"></div>
+                <div class="carousel-slide"><img src="https://media.forgecdn.net/attachments/1243/404/junglevv-png.png" alt="Alylica Dungeons"></div>
+                <div class="carousel-slide"><img src="https://media.forgecdn.net/attachments/1243/401/redstonevv-png.png" alt="Alylica Dungeons"></div>
+                <div class="carousel-slide"><img src="https://media.forgecdn.net/attachments/1243/402/namelessvv-png.png" alt="Alylica Dungeons"></div>
+                <div class="carousel-slide"><img src="https://media.forgecdn.net/attachments/description/1291242/description_f1703971-e620-4fd4-b237-f14f0cbb26a6.png" alt="Alylica Dungeons"></div>
+                <div class="carousel-slide"><img src="https://media.forgecdn.net/attachments/description/1291242/description_574ad186-4e74-4a9b-b549-d65815248d8a.png" alt="Alylica Dungeons"></div>
             </div>
             <div class="card-info">
-                <h3>ETERNAL CAVES</h3>
-                <p>O subterrâneo foi revolucionado com mais de 20 novos tipos de cavernas insanas. Enfrente abismos traiçoeiros, biomas subterrâneos vívidos e novos minérios e perigos que mudarão sua forma de minerar.</p>
+                <h3>ALYLICA'S DUNGEONS</h3>
+                <p>Explore labirintos profundos e enfrente chefes formidáveis. Esse add-on adiciona imensas masmorras geradas proceduralmente com armadilhas perigosas, tesouros raros e novos desafios épicos para aventureiros destemidos!</p>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <div class="carousel-container" data-group="structures">
+                <div class="carousel-slide active">
+                    <img src="https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/f0834858-d91a-4c35-ac90-96f3d5d0cc25/MoreStructuresAddOn_Thumbnail_0.jpg" alt="More Structures">
+                    <a href="https://www.minecraft.net/pt-br/marketplace/pdp/goe--craft/more-structures-add--on/dce99ee3-16f0-40d6-98ce-0aaff288efe9" target="_blank" class="yt-overlay-btn site-btn" onclick="event.stopPropagation()">Acessar Site</a>
+                </div>
+                <div class="carousel-slide"><img src="https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/4667ac30-2bf5-476f-a9b9-a974bc292bca/MoreStructuresAddOn_screenshot_0.jpg" alt="More Structures"></div>
+                <div class="carousel-slide"><img src="https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/533000d4-caa5-4f2e-9b3f-78a4e3f93582/MoreStructuresAddOn_screenshot_1.jpg" alt="More Structures"></div>
+                <div class="carousel-slide"><img src="https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/10eecd6e-e44a-4f7e-8042-22b011a9a30a/MoreStructuresAddOn_screenshot_2.jpg" alt="More Structures"></div>
+                <div class="carousel-slide"><img src="https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/00f4d929-a979-4f78-8b4b-bbdfef04f19e/MoreStructuresAddOn_screenshot_3.jpg" alt="More Structures"></div>
+            </div>
+            <div class="card-info">
+                <h3>MORE STRUCTURES</h3>
+                <p>Revitalize a exploração com centenas de novas estruturas imersivas! De ruínas antigas e esquecidas a acampamentos abandonados, o mundo ganha uma nova camada de mistério, vida e novos locais para saquear e dominar.</p>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <div class="carousel-container" data-group="fantasy">
+                <div class="carousel-slide active">
+                    <img src="https://minecraft-pocket.com/uploads/posts/2024-06/1718274823_pfe1-1.jpg" alt="Poke's Fantasy Expansion">
+                    <a href="https://mcpedl.com/pfe/" target="_blank" class="yt-overlay-btn site-btn" onclick="event.stopPropagation()">Acessar Site</a>
+                </div>
+                <div class="carousel-slide"><img src="https://media.forgecdn.net/attachments/888/275/pfe1.jpg" alt="Poke's Fantasy Expansion"></div>
+                <div class="carousel-slide"><img src="https://media.forgecdn.net/attachments/888/274/pfe1.jpg" alt="Poke's Fantasy Expansion"></div>
+            </div>
+            <div class="card-info">
+                <h3>POKE'S FANTASY EXPANSION</h3>
+                <p>Expanda sua aventura com dezenas de criaturas místicas e animais de fantasia! Encontre novas feras mágicas e monstros desafiadores que povoam todos os biomas, trazendo vida e um ecossistema vivo à sua jornada.</p>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <div class="carousel-container" data-group="create">
+                <div class="carousel-slide active">
+                    <img src="https://i.ytimg.com/vi/CnaS1RGogGA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCBagNcdugVzYRV3pFucwr-bwoQtQ" alt="Create Add-On">
+                    <a href="https://youtu.be/zwfuAnr-AVU?si=ux6Q1iABRACXw2AU" target="_blank" class="yt-overlay-btn" onclick="event.stopPropagation()">Assistir Trailer</a>
+                </div>
+            </div>
+            <div class="card-info">
+                <h3>CREATE ADD-ON</h3>
+                <p>A revolução industrial chegou! Automatize sua base e construa complexos industriais com engrenagens mecânicas, esteiras de transporte, moinhos e máquinas incríveis baseadas no famoso mod Create do Java Edition.</p>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <div class="carousel-container" data-group="allthemodium">
+                <div class="carousel-slide active">
+                    <img src="https://i.ytimg.com/vi/zRoKTU45VOw/maxresdefault.jpg" alt="Allthemodium Bedrock Edition">
+                    <a href="https://www.curseforge.com/minecraft-bedrock/addons/shadow-fire-atm" target="_blank" class="yt-overlay-btn site-btn" onclick="event.stopPropagation()">Acessar Site</a>
+                </div>
+                <div class="carousel-slide"><img src="https://media.forgecdn.net/attachments/1722/309/1000085685-jpg.jpg" alt="Allthemodium"></div>
+            </div>
+            <div class="card-info">
+                <h3>ALLTHEMODIUM BEDROCK</h3>
+                <p>Domine a forja dos minérios mais extremamente raros do universo! Adicione o mítico Allthemodium ao seu jogo para criar armaduras celestiais e ferramentas indestrutíveis para se tornar o jogador mais temido do servidor.</p>
             </div>
         </div>
 
@@ -545,22 +587,30 @@
         const slideDivs = container.querySelectorAll('.carousel-slide');
         
         let slidesData = [];
-        let youtubeLink = null;
+        let actionLink = null;
+        let actionText = "Assistir Trailer";
+        let isSiteBtn = false;
 
         slideDivs.forEach((slide, index) => {
             const img = slide.querySelector('img');
             if (img) slidesData.push(img.src);
             
-            // Captura o link do YouTube apenas na capa (primeiro slide)
+            // Captura o link e o texto do botão apenas na capa (primeiro slide)
             if (index === 0) {
-                const ytBtn = slide.querySelector('.yt-overlay-btn');
-                if (ytBtn) youtubeLink = ytBtn.href;
+                const btn = slide.querySelector('.yt-overlay-btn');
+                if (btn) {
+                    actionLink = btn.href;
+                    actionText = btn.innerText || btn.textContent;
+                    isSiteBtn = btn.classList.contains('site-btn');
+                }
             }
         });
 
         groups[groupId] = {
             slides: slidesData,
-            youtube: youtubeLink
+            link: actionLink,
+            text: actionText,
+            isSite: isSiteBtn
         };
 
         // Lógica de auto-play do carrossel
@@ -577,7 +627,7 @@
             nextSlide.classList.add('active');
         }, 3500);
 
-        // Abrir Lightbox ao clicar (ignorando se clicou no botão do YouTube)
+        // Abrir Lightbox ao clicar (ignorando se clicou no botão do YouTube/Site)
         container.addEventListener('click', (e) => {
             if (e.target.classList.contains('yt-overlay-btn')) return;
             openLightbox(groupId);
@@ -602,10 +652,17 @@
         const group = groups[activeGroupId];
         lightboxImg.src = group.slides[activeIndex];
         
-        // Mostrar o botão do YouTube apenas se estivermos na Capa (Index 0)
-        if (activeIndex === 0 && group.youtube) {
+        // Mostrar o botão do YouTube/Site apenas se estivermos na Capa (Index 0)
+        if (activeIndex === 0 && group.link) {
             lightboxYtBtn.style.display = 'flex';
-            lightboxYtBtn.href = group.youtube;
+            lightboxYtBtn.href = group.link;
+            lightboxYtBtn.innerText = group.text;
+            
+            if (group.isSite) {
+                lightboxYtBtn.classList.add('site-btn');
+            } else {
+                lightboxYtBtn.classList.remove('site-btn');
+            }
         } else {
             lightboxYtBtn.style.display = 'none';
         }
