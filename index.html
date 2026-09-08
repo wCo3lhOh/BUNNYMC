@@ -170,10 +170,18 @@
             to { opacity: 1; }
         }
 
-        .yt-overlay-btn {
+        .overlay-btn-container {
             position: absolute;
             bottom: 15px;
             right: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .yt-overlay-btn {
             background: #ff0000;
             color: white;
             padding: 10px 20px;
@@ -183,7 +191,6 @@
             font-family: 'Inter', sans-serif;
             font-size: 13px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-            z-index: 10;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -205,15 +212,51 @@
             font-size: 16px;
         }
 
+        .yt-overlay-btn.tutorial-btn {
+            background: #f39c12;
+        }
+
+        .yt-overlay-btn.tutorial-btn:hover {
+            background: #e67e22;
+        }
+
+        .yt-overlay-btn.tutorial-btn::before {
+            content: '📖';
+            font-size: 16px;
+        }
+
         .yt-overlay-btn:hover {
             transform: scale(1.05);
             background: #e60000;
         }
 
-        .yt-overlay-btn:not(.site-btn)::before {
+        .yt-overlay-btn:not(.site-btn):not(.tutorial-btn)::before {
             content: '▶';
             font-size: 16px;
         }
+
+        /* Estilos para a Tag/Selo dos Minigames nas imagens */
+        .minigame-label {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 10px;
+            z-index: 5;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+            border: 2px solid rgba(255,255,255,0.2);
+            text-transform: uppercase;
+            pointer-events: none;
+            backdrop-filter: blur(4px);
+        }
+
+        .label-arena { background: rgba(220, 38, 38, 0.9); }    /* Vermelho Escuro */
+        .label-esconde { background: rgba(147, 51, 234, 0.9); } /* Roxo */
+        .label-futebol { background: rgba(22, 163, 74, 0.9); }  /* Verde */
+        .label-parkour { background: rgba(234, 88, 12, 0.9); }  /* Laranja */
 
         .card-info {
             padding: 20px;
@@ -234,7 +277,8 @@
             text-align: justify;
         }
 
-        .server-info {
+        /* Menu de Sistemas Estilizado */
+        .systems-guide {
             background: var(--glass);
             backdrop-filter: blur(15px);
             border-radius: 30px;
@@ -243,7 +287,7 @@
             border: 1px solid var(--glass-border);
         }
 
-        .server-info h2 {
+        .systems-guide h2 {
             font-family: 'Press Start 2P', cursive;
             color: var(--accent);
             text-align: center;
@@ -251,24 +295,71 @@
             font-size: 18px;
         }
 
-        .info-content {
-            columns: 2;
-            column-gap: 40px;
-            text-align: justify;
-        }
-
-        .info-item {
-            break-inside: avoid;
-            margin-bottom: 25px;
-        }
-
-        .info-item h4 {
-            color: var(--primary);
-            margin-bottom: 10px;
+        .tabs-wrapper {
             display: flex;
-            align-items: center;
-            gap: 10px;
+            flex-direction: column;
+            gap: 20px;
         }
+
+        @media(min-width: 768px) {
+            .tabs-wrapper {
+                flex-direction: row;
+            }
+        }
+
+        .tabs-nav {
+            display: flex;
+            flex-direction: row;
+            overflow-x: auto;
+            gap: 10px;
+            min-width: 250px;
+            padding-bottom: 10px;
+        }
+
+        @media(min-width: 768px) {
+            .tabs-nav {
+                flex-direction: column;
+                overflow-x: visible;
+                padding-bottom: 0;
+            }
+        }
+
+        .tab-btn {
+            background: rgba(255,255,255,0.05);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 15px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: left;
+            font-weight: bold;
+            transition: 0.3s;
+            white-space: nowrap;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .tab-btn:hover { background: rgba(255,255,255,0.2); }
+        .tab-btn.active { background: var(--primary); border-color: #fff; color: #fff; }
+
+        .tabs-content-container {
+            flex-grow: 1;
+            background: rgba(0,0,0,0.6);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .tab-content { display: none; animation: fade 0.5s; text-align: justify; font-size: 15px; }
+        .tab-content.active { display: block; }
+        .tab-content h3 { color: var(--accent); margin-bottom: 15px; font-family: 'Press Start 2P', cursive; font-size: 14px; line-height: 1.5; }
+        .tab-content h4 { color: var(--primary); margin: 20px 0 10px 0; font-size: 16px; }
+        .tab-content p { margin-bottom: 15px; }
+        .tab-content ul { padding-left: 20px; margin-bottom: 20px; }
+        .tab-content li { margin-bottom: 10px; }
+        .tab-content strong { color: var(--accent); }
+        .tab-content hr { border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0; }
 
         .social-footer {
             display: flex;
@@ -322,6 +413,7 @@
             max-width: 90%;
             max-height: 80%;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
@@ -370,10 +462,15 @@
             z-index: 1001;
         }
 
+        #lightbox-btn-container {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
         @media (max-width: 768px) {
-            .info-content {
-                columns: 1;
-            }
             .logo {
                 width: 90%;
             }
@@ -384,6 +481,14 @@
             .whatsapp-link img {
                 width: 30px;
                 height: 30px;
+            }
+            .overlay-btn-container {
+                flex-direction: column;
+            }
+            #lightbox-btn-container {
+                bottom: 10px;
+                right: 10px;
+                flex-direction: column;
             }
         }
     </style>
@@ -400,36 +505,38 @@
     <section class="features-grid">
 
         <div class="feature-card">
-            <div class="carousel-container" data-group="adventure">
+            <div class="carousel-container" data-group="bossesrise">
                 <div class="carousel-slide active">
-                    <img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/capa%20AdventureCraft_Screenshot_1.jpg" alt="Adventure Craft">
-                    <a href="https://youtu.be/wTz_rbfdnHE" target="_blank" class="yt-overlay-btn" onclick="event.stopPropagation()">Assistir Trailer</a>
+                    <img src="https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/089e5493-bcf7-47fc-828e-2f8a6b4efbbb/BossesRise_thumbnail.jpg" alt="Bosses Rise">
+                    <div class="overlay-btn-container">
+                        <a href="https://youtu.be/cSl9sarHnNs?si=94j71aekVmOo_B3M" target="_blank" class="yt-overlay-btn" onclick="event.stopPropagation()">Assistir Trailer</a>
+                        <a href="https://youtu.be/cZAf9nfc5Us?si=MWYqGIWV3tUEcAPP" target="_blank" class="yt-overlay-btn tutorial-btn" onclick="event.stopPropagation()">Tutorial</a>
+                    </div>
                 </div>
-                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/AdventureCraft_Screenshot_0.jpg" alt="Adventure Craft"></div>
-                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/AdventureCraft_Screenshot_1.jpg" alt="Adventure Craft"></div>
-                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/AdventureCraft_Screenshot_2.jpg" alt="Adventure Craft"></div>
-                <div class="carousel-slide"><img src="https://raw.githubusercontent.com/wCo3lhOh/SITE/main/AdventureCraft_Screenshot_3.jpg" alt="Adventure Craft"></div>
+                <div class="carousel-slide"><img src="https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/b34160aa-5a25-4f19-b0ee-410c27acf744/BossesRise_screenshot_0.jpg" alt="Bosses Rise"></div>
+                <div class="carousel-slide"><img src="https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/0a647db7-c49e-4e50-960d-c76d5f01def7/BossesRise_screenshot_1.jpg" alt="Bosses Rise"></div>
+                <div class="carousel-slide"><img src="https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/d8c11f33-6074-4b53-ac1c-23dfdda352a4/BossesRise_screenshot_2.jpg" alt="Bosses Rise"></div>
+                <div class="carousel-slide"><img src="https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/b7517c0d-ef2e-4a01-a973-986866dc803a/BossesRise_screenshot_3.jpg" alt="Bosses Rise"></div>
             </div>
             <div class="card-info">
-                <h3>ADVENTURE CRAFT</h3>
-                <p>Mergulhe em um universo com novas masmorras perigosas, estruturas grandiosas, magias antigas e, o mais importante, dragões épicos que você pode domar e montar para explorar os céus do servidor!</p>
+                <h3>BOSSES RISE</h3>
+                <p>Enfrente abominações colossais e deidades caídas. Este add-on introduz lutas épicas contra chefes com mecânicas únicas, habilidades devastadoras e recompensas exclusivas para os guerreiros mais corajosos do servidor.</p>
             </div>
         </div>
 
         <div class="feature-card">
-            <div class="carousel-container" data-group="aethermoa">
+            <div class="carousel-container" data-group="mythsmagic">
                 <div class="carousel-slide active">
-                    <img src="https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/698ddaae-3344-446a-989b-699437d04dbf/Aether_Moa_Add-On_Thumbnail_0.jpg" alt="Aether Moa Add-On">
-                    <a href="https://youtu.be/04VXySV0YG8?si=KyvqRG6ErBZWlmQD" target="_blank" class="yt-overlay-btn" onclick="event.stopPropagation()">Assistir Trailer</a>
+                    <img src="https://media.forgecdn.net/attachments/1531/418/thumbnail-png.png" alt="Myths & Magic">
+                    <div class="overlay-btn-container">
+                        <a href="https://youtu.be/dN0nPi6aADo?si=mbM1F_zHwepy64vj" target="_blank" class="yt-overlay-btn" onclick="event.stopPropagation()">Assistir Trailer</a>
+                        <a href="https://youtu.be/L-RPBDZQqR8?si=uhGyP5ru6C9HZg72" target="_blank" class="yt-overlay-btn tutorial-btn" onclick="event.stopPropagation()">Tutorial</a>
+                    </div>
                 </div>
-                <div class="carousel-slide"><img src="https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/5686f22e-5beb-4729-9578-5965f4acf86e/Aether_Moa_Add-On_screenshot_0.jpg" alt="Aether Moa"></div>
-                <div class="carousel-slide"><img src="https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/c36c65a9-b445-426d-b530-b70ee7dea678/Aether_Moa_Add-On_screenshot_1.jpg" alt="Aether Moa"></div>
-                <div class="carousel-slide"><img src="https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/acafd7f6-614e-4c7a-833e-2b3de96d2825/Aether_Moa_Add-On_screenshot_2.jpg" alt="Aether Moa"></div>
-                <div class="carousel-slide"><img src="https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/e922ea33-80c1-499f-9678-5024909ad306/Aether_Moa_Add-On_screenshot_3.jpg" alt="Aether Moa"></div>
             </div>
             <div class="card-info">
-                <h3>AETHER MOA</h3>
-                <p>Domine os céus domando Moas! Pássaros gigantes com plumagens incríveis, cada qual com habilidades únicas de pulo e planar. Encontre-os pelo mundo, choche seus ovos e crie seu companheiro alado favorito.</p>
+                <h3>MYTHS & MAGIC</h3>
+                <p>O poder arcano em suas mãos. Descubra livros de feitiços antigos, cajados elementais e domine a feitiçaria avançada. Invoque magias destrutivas e feitiços de suporte para aniquilar inimigos e auxiliar seus aliados.</p>
             </div>
         </div>
 
@@ -437,7 +544,9 @@
             <div class="carousel-container" data-group="alylica">
                 <div class="carousel-slide active">
                     <img src="https://media.forgecdn.net/attachments/1700/123/mcpedl-png.png" alt="Alylica's Dungeons">
-                    <a href="https://mcpedl.com/alylicas-dungeons-addon-2-2/" target="_blank" class="yt-overlay-btn site-btn" onclick="event.stopPropagation()">Acessar Site</a>
+                    <div class="overlay-btn-container">
+                        <a href="https://mcpedl.com/alylicas-dungeons-addon-2-2/" target="_blank" class="yt-overlay-btn site-btn" onclick="event.stopPropagation()">Acessar Site</a>
+                    </div>
                 </div>
                 <div class="carousel-slide"><img src="https://media.forgecdn.net/attachments/1243/403/mooshroomvv-png.png" alt="Alylica Dungeons"></div>
                 <div class="carousel-slide"><img src="https://media.forgecdn.net/attachments/1243/406/vhoevv-png.png" alt="Alylica Dungeons"></div>
@@ -455,27 +564,12 @@
         </div>
 
         <div class="feature-card">
-            <div class="carousel-container" data-group="vanillavehicles">
-                <div class="carousel-slide active">
-                    <img src="https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/8a2040e9-bfd7-427d-9576-9ab14b0db382/VanillaVehicles_Thumbnail_0.jpg" alt="Vanilla Vehicles">
-                    <a href="https://youtu.be/UmNoCHK6shM?si=GLWpJZ0Ptp9Pe-M3" target="_blank" class="yt-overlay-btn" onclick="event.stopPropagation()">Assistir Trailer</a>
-                </div>
-                <div class="carousel-slide"><img src="https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/b6bdf51d-fde9-4f6f-9f75-aa2c4c3941ff/VanillaVehicles_screenshot_0.jpg" alt="Vanilla Vehicles"></div>
-                <div class="carousel-slide"><img src="https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/8bb8531c-4e1a-48aa-80b2-9bacf4b2bddc/VanillaVehicles_screenshot_1.jpg" alt="Vanilla Vehicles"></div>
-                <div class="carousel-slide"><img src="https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/9889c426-f5ac-4719-a58c-17f6c1e73430/VanillaVehicles_screenshot_2.jpg" alt="Vanilla Vehicles"></div>
-                <div class="carousel-slide"><img src="https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/f1754de4-f80d-4247-8f41-1abefa4da02b/VanillaVehicles_screenshot_3.jpg" alt="Vanilla Vehicles"></div>
-            </div>
-            <div class="card-info">
-                <h3>VANILLA VEHICLES</h3>
-                <p>Navegue pelo seu reino com estilo! Tenha acesso a mais de 40 veículos, desde tratores até aviões e helicópteros em um estilo perfeito que mistura com o Vanilla. Fabricáveis no modo sobrevivência!</p>
-            </div>
-        </div>
-
-        <div class="feature-card">
             <div class="carousel-container" data-group="fantasy">
                 <div class="carousel-slide active">
                     <img src="https://minecraft-pocket.com/uploads/posts/2024-06/1718274823_pfe1-1.jpg" alt="Poke's Fantasy Expansion">
-                    <a href="https://mcpedl.com/pfe/" target="_blank" class="yt-overlay-btn site-btn" onclick="event.stopPropagation()">Acessar Site</a>
+                    <div class="overlay-btn-container">
+                        <a href="https://pfewiki.gitbook.io/home" target="_blank" class="yt-overlay-btn tutorial-btn" onclick="event.stopPropagation()">Acessar Wiki</a>
+                    </div>
                 </div>
                 <div class="carousel-slide"><img src="https://media.forgecdn.net/attachments/888/275/pfe1.jpg" alt="Poke's Fantasy Expansion"></div>
                 <div class="carousel-slide"><img src="https://media.forgecdn.net/attachments/888/274/pfe1.jpg" alt="Poke's Fantasy Expansion"></div>
@@ -490,7 +584,9 @@
             <div class="carousel-container" data-group="create">
                 <div class="carousel-slide active">
                     <img src="https://i.ytimg.com/vi/CnaS1RGogGA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCBagNcdugVzYRV3pFucwr-bwoQtQ" alt="Create Add-On">
-                    <a href="https://youtu.be/zwfuAnr-AVU?si=ux6Q1iABRACXw2AU" target="_blank" class="yt-overlay-btn" onclick="event.stopPropagation()">Assistir Trailer</a>
+                    <div class="overlay-btn-container">
+                        <a href="https://youtu.be/zwfuAnr-AVU?si=ux6Q1iABRACXw2AU" target="_blank" class="yt-overlay-btn" onclick="event.stopPropagation()">Assistir Trailer</a>
+                    </div>
                 </div>
             </div>
             <div class="card-info">
@@ -503,13 +599,98 @@
             <div class="carousel-container" data-group="allthemodium">
                 <div class="carousel-slide active">
                     <img src="https://i.ytimg.com/vi/zRoKTU45VOw/maxresdefault.jpg" alt="Allthemodium Bedrock Edition">
-                    <a href="https://www.curseforge.com/minecraft-bedrock/addons/shadow-fire-atm" target="_blank" class="yt-overlay-btn site-btn" onclick="event.stopPropagation()">Acessar Site</a>
+                    <div class="overlay-btn-container">
+                        <a href="https://www.curseforge.com/minecraft-bedrock/addons/shadow-fire-atm" target="_blank" class="yt-overlay-btn site-btn" onclick="event.stopPropagation()">Acessar Site</a>
+                        <a href="https://youtu.be/TiGyp6mdHTk?si=GsNuonLA-R8pHFrN" target="_blank" class="yt-overlay-btn tutorial-btn" onclick="event.stopPropagation()">Tutorial</a>
+                    </div>
                 </div>
                 <div class="carousel-slide"><img src="https://media.forgecdn.net/attachments/1722/309/1000085685-jpg.jpg" alt="Allthemodium"></div>
             </div>
             <div class="card-info">
                 <h3>ALLTHEMODIUM BEDROCK</h3>
                 <p>Domine a forja dos minérios mais extremamente raros do universo! Adicione o mítico Allthemodium ao seu jogo para criar armaduras celestiais e ferramentas indestrutíveis para se tornar o jogador mais temido do servidor.</p>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <div class="carousel-container" data-group="simplestorage">
+                <div class="carousel-slide active">
+                    <img src="https://media.forgecdn.net/attachments/1802/548/simplestorage-jpg.jpg" alt="Simple Storage">
+                    <div class="overlay-btn-container">
+                        <a href="https://youtu.be/aFu_65zlNSA?si=Fne2ttLJk1jU5mUI" target="_blank" class="yt-overlay-btn tutorial-btn" onclick="event.stopPropagation()">Tutorial</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-info">
+                <h3>SIMPLE STORAGE</h3>
+                <p>A automação definitiva para seus baús. Interligue todos os seus baús em uma rede inteligente, acesse todos os seus itens por um único painel e crie sistemas de armazenagem massivos dignos das maiores guildas.</p>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <div class="carousel-container" data-group="minigames">
+                <div class="carousel-slide active">
+                    <img src="https://github.com/wCo3lhOh/SITE/blob/main/ARENA%20PVP.jpeg?raw=true" alt="Arena PvP">
+                    <span class="minigame-label label-arena">Arena PvP</span>
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://github.com/wCo3lhOh/SITE/blob/main/ESCONDE%201.jpeg?raw=true" alt="Esconde Esconde">
+                    <span class="minigame-label label-esconde">Esconde Esconde</span>
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://github.com/wCo3lhOh/SITE/blob/main/ESCONDE%202.jpeg?raw=true" alt="Esconde Esconde">
+                    <span class="minigame-label label-esconde">Esconde Esconde</span>
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://github.com/wCo3lhOh/SITE/blob/main/ESCONDE%203.jpeg?raw=true" alt="Esconde Esconde">
+                    <span class="minigame-label label-esconde">Esconde Esconde</span>
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://github.com/wCo3lhOh/SITE/blob/main/ESCONDE%204.jpeg?raw=true" alt="Esconde Esconde">
+                    <span class="minigame-label label-esconde">Esconde Esconde</span>
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://github.com/wCo3lhOh/SITE/blob/main/ESCONDE%205.jpeg?raw=true" alt="Esconde Esconde">
+                    <span class="minigame-label label-esconde">Esconde Esconde</span>
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://github.com/wCo3lhOh/SITE/blob/main/FUTEBOL.jpeg?raw=true" alt="Futebol">
+                    <span class="minigame-label label-futebol">Futebol</span>
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://github.com/wCo3lhOh/SITE/blob/main/PARKOUR%201.jpeg?raw=true" alt="Parkour">
+                    <span class="minigame-label label-parkour">Parkour</span>
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://github.com/wCo3lhOh/SITE/blob/main/PARKOUR%202.jpeg?raw=true" alt="Parkour">
+                    <span class="minigame-label label-parkour">Parkour</span>
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://github.com/wCo3lhOh/SITE/blob/main/PARKOUR%203.jpeg?raw=true" alt="Parkour">
+                    <span class="minigame-label label-parkour">Parkour</span>
+                </div>
+            </div>
+            <div class="card-info">
+                <h3>MINIGAMES DO SERVIDOR</h3>
+                <p>Relaxe das guerras explorando nossos modos arcade! Compita com seus amigos na sangrenta <strong>Arena PvP</strong>, desvie do perigo no autêntico <strong>Esconde-Esconde</strong> com radar cardíaco, teste sua agilidade no <strong>Parkour</strong> ou faça gols épicos no <strong>Futebol</strong> com itens mágicos e super chutes sônicos.</p>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <div class="carousel-container" data-group="loja">
+                <div class="carousel-slide active">
+                    <img src="https://github.com/wCo3lhOh/SITE/blob/main/LOJA%201.jpeg?raw=true" alt="Loja Externa">
+                </div>
+                <div class="carousel-slide"><img src="https://github.com/wCo3lhOh/SITE/blob/main/LOJA%202%20NPC.png?raw=true" alt="Beto Construtor"></div>
+                <div class="carousel-slide"><img src="https://github.com/wCo3lhOh/SITE/blob/main/LOJA%203%20NPC.png?raw=true" alt="Maga Elara"></div>
+                <div class="carousel-slide"><img src="https://github.com/wCo3lhOh/SITE/blob/main/LOJA%204%20NPC.png?raw=true" alt="Tomate Fazendeiro"></div>
+                <div class="carousel-slide"><img src="https://github.com/wCo3lhOh/SITE/blob/main/LOJA%205%20BANCO.png?raw=true" alt="Banco Central"></div>
+                <div class="carousel-slide"><img src="https://github.com/wCo3lhOh/SITE/blob/main/LOJA%206%20BANCO.png?raw=true" alt="Manequins Custom"></div>
+                <div class="carousel-slide"><img src="https://github.com/wCo3lhOh/SITE/blob/main/LOJA%207%20BANCO.png?raw=true" alt="Vendedor Especial"></div>
+            </div>
+            <div class="card-info">
+                <h3>ECONOMIA & LOJAS</h3>
+                <p>Nosso mercado fervilha de vida! Visite os NPCs em suas barracas. O estoque de venda é infinito, mas as compras deles mudam diariamente por contratos de demanda. Troque suas moedas pesadas no Banco Central e compre armaduras exclusivas nos Manequins.</p>
             </div>
         </div>
 
@@ -528,32 +709,168 @@
 
     </section>
 
-    <section class="server-info">
-        <h2>🐰 CONHEÇA O BUNNY MC 🚀</h2>
-        <div class="info-content">
-            <div class="info-item">
-                <h4>🛡️ SURVIVAL RPG ÉPICO (SEMI-ANÁRQUICO)</h4>
-                <p>Uma experiência semi-anárquica totalmente reformulada com novos biomas, dezenas de cavernas insanas, dimensões expandidas, dragões montáveis, automação de máquinas com o mod Create, veículos fantásticos, exploração dos céus com Moas e masmorras mortais em busca dos minérios mais raros do mundo.</p>
+    <!-- MENU INTERATIVO DE SISTEMAS DO SERVIDOR -->
+    <section class="systems-guide">
+        <h2>📚 ENCICLOPÉDIA BUNNY MC</h2>
+        <div class="tabs-wrapper">
+            <div class="tabs-nav">
+                <button class="tab-btn active" onclick="openTab(event, 'tab-regras')">Regras do Servidor</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-classes')">Classes RPG</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-clans')">Reinos e Clãs</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-terrenos')">Proteção (Terrenos)</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-homes')">Sistema de Homes</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-tpa')">TPA & Mortes</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-economia')">Dinheiro e Loja</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-missoes')">Missões RPG</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-vip')">Vantagens VIP</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-minigames')">Arcade (Minigames)</button>
             </div>
-            <div class="info-item">
-                <h4>🏰 SISTEMA DE REINOS & CLANS</h4>
-                <p>Funde seu próprio reino com XP. Ative ou desative o fogo amigo, gerencie a diplomacia entre reinos e lute em guerras por pontos de renome. Participe de eventos exclusivos de clans que podem premiar os jogadores com itens únicos e dias de VIP grátis!</p>
-            </div>
-            <div class="info-item">
-                <h4>📈 PROGRESSÃO E HABILIDADES</h4>
-                <p>Escolha entre 11 classes diferentes e defina sua jogabilidade! Suba de nível fazendo missões, matando bosses, minerando e explorando. O seu progresso libera novas habilidades exclusivas atreladas a cada classe do nosso sistema avançado de RPG.</p>
-            </div>
-            <div class="info-item">
-                <h4>🌍 PROTEÇÃO DE TERRENOS & HOMES</h4>
-                <p>Proteja seu território com nosso sistema exclusivo, impedindo que outros jogadores quebrem ou coloquem blocos na sua terra e restringindo o acesso aos seus baús (Atenção: A proteção do terreno não impede danos por explosões!). Além disso, salve seus lugares favoritos com o sistema de Home e encontre seus aliados através de pedidos de teleporte.</p>
-            </div>
-            <div class="info-item">
-                <h4>⭐ VANTAGENS VIP</h4>
-                <p>Nossos VIPs garantem uma boa vantagem inicial e contínua. Acesse efeitos extras permanentes, mais vida e mais dano no combate. Membros VIP Plus possuem acesso a voo livre, podem mudar o tamanho do personagem, usam nicks coloridos e animados no chat, possuem partículas exclusivas e homes extras. E mais: ambos os VIPs garantem uma porcentagem bônus no ganho de XP para você subir de nível mais rápido!</p>
-            </div>
-            <div class="info-item">
-                <h4>🟢 SERVIDOR ONLINE</h4>
-                <p>O melhor servidor da comunidade focado em RPG e exploração extrema. Entre agora e construa o seu legado inesquecível conosco!</p>
+
+            <div class="tabs-content-container">
+                <!-- REGRAS -->
+                <div id="tab-regras" class="tab-content active">
+                    <h3>📜 REGRAS PRINCIPAIS DO BUNNY MC</h3>
+                    <p>O servidor é focado num modelo Semi-Anárquico para batalhas, mas algumas leis são irrevogáveis. Quebrá-las resulta em prisão, remoção de inventário ou banimento permanente.</p>
+                    <hr>
+                    <ul>
+                        <li><strong>1. Proibido Hacks e Trapaças:</strong> Usar clients modificados, macros, scripts ou qualquer ferramenta que gere vantagens injutas é Banimento Permanente e Imediato.</li>
+                        <li><strong>2. Proibido Abusar de Bugs:</strong> Achou uma falha ou um método de duplicação? Reporte à Staff. Abusar para farmar itens ou derrubar (lagar) o servidor causa Prisão e Wipe de conta.</li>
+                        <li><strong>3. Jogo Limpo de Combate:</strong> "Farm de Kills" (matar o mesmo amigo repetidamente em acordo mútuo para subir no rank e ganhar recompensas) é absolutamente proibido.</li>
+                        <li><strong>4. Sem Toxicidade Extrema:</strong> Raiding é do jogo, assédio real não. Ofensas pesadas, preconceito, discurso de ódio ou perseguição resultam em punição.</li>
+                    </ul>
+                    <hr>
+                    <h4>O que É PERMITIDO?</h4>
+                    <p><strong>Roubo e PvP sem regras:</strong> É matar ou morrer! Destruir bases desprotegidas e emboscar jogadores fora do spawn faz parte da experiência. <strong>A única forma de se proteger é fundando uma base e comprando Terrenos!</strong></p>
+                </div>
+
+                <!-- CLASSES -->
+                <div id="tab-classes" class="tab-content">
+                    <h3>⚔️ SISTEMA DE CLASSES RPG</h3>
+                    <p>Ao ingressar no mundo, você deve escolher uma das <strong>11 vocações</strong>. Cada classe dita seu estilo de combate, suas habilidades ativas/passivas e seu papel em grupos.</p>
+                    <ul>
+                        <li><strong>Cavaleiro:</strong> Tanque de controle. Usa correntes de puxão, restringe alvos em duelos isolados e ganha regeneração pura baseada em armadura.</li>
+                        <li><strong>Arqueiro:</strong> Mobilidade extrema. Usa dashes acrobáticos, flechas de gelo e explosivas e disparos múltiplos para zonear os inimigos.</li>
+                        <li><strong>Assassino:</strong> Furtividade e dano massivo. Pode ficar invisível, teleportar a curtas distâncias e aplicar dano crítico bônus ao atacar pelas costas.</li>
+                        <li><strong>Mago:</strong> Conjurador letal. Lança magias de fogo, correntes contínuas de mana e pode caminhar temporariamente no ar criando campos de força.</li>
+                        <li><strong>Paladino:</strong> Defensor divino de Suporte. Suas consagrações curam todos os aliados na área, julga pecadores e reflete danos direcionados a ele.</li>
+                        <li><strong>Necromante:</strong> Mestre sombrio. Invoca hordas inteiras de zumbis e esqueletos aliados, drenando a energia vital e apodrecendo quem ousa se aproximar.</li>
+                        <li><strong>Bárbaro:</strong> Força bruta incontestável. Utiliza o estado de fúria (buff de status), gritos intimidadores (debuff) e saltos sísmicos mortais.</li>
+                        <li><strong>Fada:</strong> Suporte aéreo supremo. Voa naturalmente, cura o clã do alto e usa poeira mágica para levitar e desorientar alvos isolados.</li>
+                        <li><strong>Druida:</strong> Controla a natureza. Lidera alcateias de lobos invocados que escalam com seu nível. Se regenera massivamente ao ficar imóvel em terrenos férteis.</li>
+                        <li><strong>Demônio:</strong> Imune às chamas. Abre erupções vulcânicas do chão, evapora rios ao caminhar e se torna implacável se lutar diretamente no Nether.</li>
+                        <li><strong>Vampiro:</strong> Terror da noite. Possui alto roubo de vida. Teleporta-se atrás da nuca de quem foge e recebe multiplicadores absolutos de força enquanto a lua estiver no céu.</li>
+                    </ul>
+                    <p><em>Use o menu da classe para consultar a árvore de evolução de níveis e descobrir quando desbloqueia novos poderes!</em></p>
+                </div>
+
+                <!-- CLANS -->
+                <div id="tab-clans" class="tab-content">
+                    <h3>🏰 REINOS E DIPLOMACIA (GUERRAS)</h3>
+                    <p>Cansado de jogar sozinho? Funde uma guilda e governe seus membros através do Sistema de Reinos.</p>
+                    <hr>
+                    <ul>
+                        <li><strong>Fundação:</strong> Criar um clã custa <strong>30 níveis de XP</strong>. O fundador tem o dever de criar o emblema visual e a TAG colorida que identificará seu exército.</li>
+                        <li><strong>Hierarquia Nobre:</strong> Existem os papéis: Rei/Rainha (Dono e Co-Dono, acesso a dissolução e declaração de guerras), Duque/Duquesa (Gerenciam terras e convidam pessoas) e Camponeses (soldados rasos).</li>
+                        <li><strong>Diplomacia Hostil:</strong> No painel, líderes podem <strong>Declarar Guerra</strong> contra bandeiras rivais (instantâneo).</li>
+                        <li><strong>Ganhos Bélicos:</strong> Ao matar um membro de clã inimigo na guerra, seu reino ganha <strong>10 Pontos de Renome</strong>. Se os soldados executarem o Rei/Rainha do clã inimigo, o reino vencedor acumula <strong>1000 Pontos</strong> instantâneos e a guerra cessa automaticamente!</li>
+                        <li><strong>Fogo Amigo:</strong> O regente pode desligar ou ligar o dano interno entre aliados pelo painel (padrão desligado para evitar traições com magias em área).</li>
+                    </ul>
+                </div>
+
+                <!-- TERRENOS -->
+                <div id="tab-terrenos" class="tab-content">
+                    <h3>🛡️ PROTEÇÃO E TERRENOS</h3>
+                    <p>O servidor é perigoso! Para proteger seus baús do saque de clãs inimigos e garantir um lar pacífico, reivindique Chunks.</p>
+                    <hr>
+                    <ul>
+                        <li><strong>Funcionamento Base:</strong> O mundo é dividido em pedaços de 16x16. Ao pegar uma bússola e usar o painel "Reivindicar (Claim)", você toma posse eterna daquele terreno (da bedrock ao limite do céu).</li>
+                        <li><strong>Restrições de Intrusos:</strong> No seu terreno, forasteiros <strong>não quebram, não colocam, não abrem baús e não interagem</strong> com portas.</li>
+                        <li><strong>Limite Dinâmico:</strong> Todo jogador ganha 1 terreno grátis ao entrar. Conforme você passa horas jogando online, você libera mais limites (até o teto base de 16 terrenos por pessoa).</li>
+                        <li><strong>Flag Anti-Invasão:</strong> Caso o radar anti-invasão seja ligado com o Admin do Servidor (se comprar ou em eventos), inimigos que pisarem no terreno serão brutalmente empurrados para fora com uma explosão cinética.</li>
+                        <li><strong>Eventos de Mobs:</strong> O Terreno cancela dano indireto em seus pets/montarias e também pode varrer o spawn de criaturas naturalmente indesejadas (como creepers) usando a flag de proteção local.</li>
+                    </ul>
+                </div>
+
+                <!-- HOMES -->
+                <div id="tab-homes" class="tab-content">
+                    <h3>🏠 SISTEMA DE TELEPORTE: HOMES</h3>
+                    <p>Para viagens rápidas e rotas seguras até sua base central, você deve definir suas <em>Homes</em> (Pontos de casa pessoais).</p>
+                    <hr>
+                    <ul>
+                        <li><strong>Criando:</strong> A 1º Home é <strong>100% Gratuita</strong>. A partir da segunda, você deve pagar o pedágio místico de <strong>30 níveis de XP</strong> ao registrar o local de spawn.</li>
+                        <li><strong>Limites Estratégicos:</strong> Jogadores base podem ter até 5 Homes. Membros VIP sobem o limite para 10, e Membros VIP+ para 20!</li>
+                        <li><strong>Viagens de Teleporte:</strong> A mágica não é gratuita. Teleportar-se para a home custa <strong>1 XP</strong> se você estiver na mesma dimensão, e <strong>3 XP</strong> se estiver atravessando mundos (ex: Nether para o Overworld).</li>
+                        <li><strong>O Timer:</strong> O teleporte exige concentração plena. Você deve aguardar 5 segundos completamente imóvel. Ser atacado cancela a viagem. VIPs tem tempo de canalização reduzido.</li>
+                    </ul>
+                </div>
+
+                <!-- TPA E MORTES -->
+                <div id="tab-tpa" class="tab-content">
+                    <h3>✈️ TELEPORTE E GESTÃO DE MORTES (TPA)</h3>
+                    <p>O utilitário oficial para se conectar com seus amigos de aliança ou recuperar seus despojos de guerra em caso de fracasso.</p>
+                    <hr>
+                    <ul>
+                        <li><strong>TPA Tradicional:</strong> Use a bússola para enviar uma notificação para um jogador online solicitando ir até ele, ou chamando-o até a sua localização ("Call"). Ele terá 2 minutos para acessar o menu e aceitar o envio mágico.</li>
+                        <li><strong>Pós-Vida Remoto:</strong> Morreu de forma trágica longe de casa? O sistema anota internamente o eixo X Y Z do tombo de suas últimas 3 mortes. Use a opção "Voltar ao Local da Morte" para retornar à batalha.</li>
+                        <li><strong>O Timer de Canalização:</strong> Assim como as homes, o envio exige 5 segundos (3s para VIPs). Se o jogador for golpeado ou der um único passo para o lado, o selo quebra e o TPA cancela.</li>
+                    </ul>
+                </div>
+
+                <!-- ECONOMIA E LOJA -->
+                <div id="tab-economia" class="tab-content">
+                    <h3>💰 ECONOMIA E AS LOJAS NATIVAS</h3>
+                    <p>No Bunny MC, o dinheiro não é virtual. Nós operamos com lastro real: os <strong>"Survival Dollars"</strong>! Você guarda na mochila e troca fisicamente pelas coisas.</p>
+                    <hr>
+                    <p><strong>A Zona Comercial Central é dividida em NPC's autônomos:</strong></p>
+                    <ul>
+                        <li><strong>Maga Elara (Itens Mágicos):</strong> Vende livros nível V, Spawners de criaturas massivas, poções prontas, ingredientes alquímicos, e encantamentos <em>Modificados</em> (Quebram 3x3, Coletam em Área) aplicados direto na sua ferramenta na hora da compra!</li>
+                        <li><strong>Beto Construtor (Materiais Rústicos):</strong> Vende toda a gama de blocos, decorações raras, toras, vidros e minérios puros fundamentais.</li>
+                        <li><strong>Tomate Fazendeiro (O Alquimista Rural):</strong> Controla o monopólio global das colheitas. Ele fornece o básico de sobrevivência (carnes assadas), as sementes raras e frutas mágicas.</li>
+                        <li><strong>O Banco Central:</strong> É um NPC sem falas, operado pelos caixas (Roberto, Amanda, Beatriz). Se você tiver milhares de moedinhas chatas ($1, $5) ocupando o inventário, converse com eles para converter tudo em notas grandes e compactar a carteira!</li>
+                        <li><strong>Manequins (Lojista Especial):</strong> Vendem armaduras sob medida e kits pré-montados com atributos bônus insanos (defesa e dano customizados da staff).</li>
+                    </ul>
+                    <p><strong>🚨 O SISTEMA DE CONTRATOS (VENDA):</strong> Todos os dias, Beto, Tomate e Elara acordam precisando de 5 materiais aleatórios. É a ÚNICA maneira de ganhar dinheiro bruto com fazendas. O estoque de demanda tem um limite (Ex: Beto só comprará 200 couros do servidor hoje, se for lento, alguém vende a cota e o NPC não aceita mais!).</p>
+                </div>
+
+                <!-- MISSÕES -->
+                <div id="tab-missoes" class="tab-content">
+                    <h3>📜 PROGRESSÃO POR MISSÕES</h3>
+                    <p>Para ganhar quantias surreais de XP e dinheiro de forma linear (sem precisar vender nada), faça contratos de guildas de aventureiros!</p>
+                    <hr>
+                    <ul>
+                        <li><strong>Missões Padrão:</strong> Podem ser de Caça (Elimine monstros), Mineração (Quebre pedras/minérios precisos), ou Coleta (Entregue loots ao contratante). O XP base escala puramente com seu Nível Global de RPG.</li>
+                        <li><strong>Dificuldades e Bônus:</strong> Fácil, Médio ou Difícil. Cada etapa aumenta muito as recompensas, mas exige contagens altas de coleta em tempos curtos. Membros VIP recebem os multiplicadores brutos de +25% e +50% no pagamento do contrato.</li>
+                        <li><strong>A Missão Diária (Épica):</strong> Um teste imposto ao servidor. Tem o objetivo fixo massivo (Ex: Abater 50 Evocadores ou Wardens) pagando valores exorbitantes (dinheiro e xp), limitados a uma vez por 24 horas reais.</li>
+                    </ul>
+                </div>
+
+                <!-- VIP -->
+                <div id="tab-vip" class="tab-content">
+                    <h3>💎 O MODO VIP</h3>
+                    <p>Jogadores que colaboram com o Bunny MC são elevados com modificações mecânicas através dos cargos <strong>VIP</strong> e <strong>VIP 2 (Plus)</strong>.</p>
+                    <hr>
+                    <ul>
+                        <li><strong>Atributos Absolutos (Podem ser Ativados/Desativados):</strong><br>
+                        <strong>- VIP Padrão:</strong> Velocidade II, Super Pulo II, Vida Dupla (40 de HP) e Dano Físico Duplicado (2x). Ganha +25% XP Base.<br>
+                        <strong>- VIP 2 (Plus):</strong> Vida Tripla (60 HP), Dano Triplo (3x). Ganha +50% XP.</li>
+                        <li><strong>Os Trunfos do VIP 2:</strong> Permissão oficial para usar <strong>Voo Livre em Survival</strong>, Condutor Passivo, Pressa II passiva e Módulo de Redimensionamento (Fique minúsculo como bebê para se esconder, ou colossal para intimidar).</li>
+                        <li><strong>Estética Aura:</strong> Escolha entre 10 efeitos de partículas em movimento emitidas pelo seu corpo, além de animar seu Nametag com ciclos RGB em movimento (Arco-Íris, Onyx, Fogo, Desvanecimento) sobre as cabeças.</li>
+                    </ul>
+                </div>
+
+                <!-- MINIGAMES -->
+                <div id="tab-minigames" class="tab-content">
+                    <h3>🎮 O ARCADE DE MINIGAMES</h3>
+                    <p>A tensão do mundo selvagem causou exaustão? Transporte seu personagem para os lobbies da central Arcade para apostar partidas isoladas sem perder equipamentos!</p>
+                    <hr>
+                    <ul>
+                        <li><strong>Futebol Frenético:</strong> O item "Bola" reage com a física! Os jogadores recebem habilidades ativas limitadas como: O <em>Super Dash</em> para arremessos longos, a carga de vento que joga inimigos para o ar (falta não declarada) e o <em>Chute Sônico</em> que empurra a bola numa explosão reta imparável, com direito à música temática e narração de painel.</li>
+                        <li><strong>Esconde-Esconde Tático:</strong> Um Procurador contra todos os sobreviventes! Possui uma mecânica de rastreamento acústico (<strong>Radar Cardíaco</strong>) que pulsa um coração acelerado na tela e caixas de som quando o assassino passa num raio de 7 blocos do seu esconderijo. Ocultos também sofrem disparos de <em>Fogos de Artifício (Dedo-Duro)</em> a cada minuto para revelar fujões.</li>
+                        <li><strong>Arena de Gladiadores:</strong> Um PvP isolado e limpo, sem perda de itens. Partidas Custom, FFA, ranqueamento oficial dos "Top Killers" visível a todo mundo e locução rítmica por música em combates diretos.</li>
+                        <li><strong>Caminho do Parkour:</strong> 3 biomas extensos de saltos com checkpoints inteligentes salvos em blocos de esmeralda!</li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </section>
@@ -574,11 +891,13 @@
     </div>
     <div class="lightbox-content">
         <img id="lightboxImg" src="">
-        <a id="lightboxYtBtn" href="" target="_blank" class="yt-overlay-btn" style="display:none; bottom: 20px; right: 20px; font-size: 16px; padding: 12px 24px;">Assistir Trailer</a>
+        <div id="lightbox-label-wrapper"></div>
+        <div id="lightbox-btn-container"></div>
     </div>
 </div>
 
 <script>
+    // Configura os Carrosseis
     const containers = document.querySelectorAll('.carousel-container[data-group]');
     const groups = {};
 
@@ -587,30 +906,30 @@
         const slideDivs = container.querySelectorAll('.carousel-slide');
         
         let slidesData = [];
-        let actionLink = null;
-        let actionText = "Assistir Trailer";
-        let isSiteBtn = false;
+        let htmlBtns = ""; // Captura todo o html de botões (trailer e/ou tutorial)
 
         slideDivs.forEach((slide, index) => {
             const img = slide.querySelector('img');
-            if (img) slidesData.push(img.src);
+            const labelSpan = slide.querySelector('.minigame-label');
+            if (img) {
+                slidesData.push({
+                    src: img.src,
+                    label: labelSpan ? labelSpan.outerHTML : ""
+                });
+            }
             
-            // Captura o link e o texto do botão apenas na capa (primeiro slide)
+            // Captura o container de botões apenas na capa (primeiro slide)
             if (index === 0) {
-                const btn = slide.querySelector('.yt-overlay-btn');
-                if (btn) {
-                    actionLink = btn.href;
-                    actionText = btn.innerText || btn.textContent;
-                    isSiteBtn = btn.classList.contains('site-btn');
+                const btnContainer = slide.querySelector('.overlay-btn-container');
+                if (btnContainer) {
+                    htmlBtns = btnContainer.innerHTML;
                 }
             }
         });
 
         groups[groupId] = {
             slides: slidesData,
-            link: actionLink,
-            text: actionText,
-            isSite: isSiteBtn
+            buttonsHTML: htmlBtns
         };
 
         // Lógica de auto-play do carrossel
@@ -627,7 +946,7 @@
             nextSlide.classList.add('active');
         }, 3500);
 
-        // Abrir Lightbox ao clicar (ignorando se clicou no botão do YouTube/Site)
+        // Abrir Lightbox ao clicar (ignorando cliques nos botões overlay)
         container.addEventListener('click', (e) => {
             if (e.target.classList.contains('yt-overlay-btn')) return;
             openLightbox(groupId);
@@ -636,7 +955,8 @@
 
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxYtBtn = document.getElementById('lightboxYtBtn');
+    const lightboxBtnContainer = document.getElementById('lightbox-btn-container');
+    const lightboxLabelWrapper = document.getElementById('lightbox-label-wrapper');
     
     let activeGroupId = null;
     let activeIndex = 0;
@@ -650,21 +970,20 @@
 
     function updateLightbox() {
         const group = groups[activeGroupId];
-        lightboxImg.src = group.slides[activeIndex];
+        const slideInfo = group.slides[activeIndex];
+
+        lightboxImg.src = slideInfo.src;
         
-        // Mostrar o botão do YouTube/Site apenas se estivermos na Capa (Index 0)
-        if (activeIndex === 0 && group.link) {
-            lightboxYtBtn.style.display = 'flex';
-            lightboxYtBtn.href = group.link;
-            lightboxYtBtn.innerText = group.text;
-            
-            if (group.isSite) {
-                lightboxYtBtn.classList.add('site-btn');
-            } else {
-                lightboxYtBtn.classList.remove('site-btn');
-            }
+        if (lightboxLabelWrapper) {
+            lightboxLabelWrapper.innerHTML = slideInfo.label;
+        }
+        
+        // Mostrar botões customizados (Trailer/Wiki/Tutorial) apenas se estivermos na Capa
+        if (activeIndex === 0 && group.buttonsHTML !== "") {
+            lightboxBtnContainer.innerHTML = group.buttonsHTML;
+            lightboxBtnContainer.style.display = 'flex';
         } else {
-            lightboxYtBtn.style.display = 'none';
+            lightboxBtnContainer.style.display = 'none';
         }
     }
 
@@ -707,6 +1026,26 @@
             else document.getElementById('prevBtn').click();
         }
     });
+
+    // SISTEMA DE ABAS (TABS) PARA A ENCICLOPÉDIA DE SISTEMAS
+    function openTab(evt, tabName) {
+        let i, tabcontent, tablinks;
+        
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+            tabcontent[i].classList.remove("active");
+        }
+        
+        tablinks = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
+        
+        document.getElementById(tabName).style.display = "block";
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
 </script>
 
 </body>
